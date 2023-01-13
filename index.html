@@ -2,18 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="refresh" content="0;url=webapp/index.html">
     <title>Testing Horizion</title>
  <script id="sap-ui-bootstrap" 
      src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
      data-sap-ui-theme="sap_horizon_dark"
      data-sap-ui-libs="sap.m"
+     data-sap-ui-resourceroots='{
+      "INNOV8ION_DAY": "./"
+    }',
      data-sap-ui-compatVersion="edge"
-     data-sap-ui-async="true">
+     data-sap-ui-async="true"
+     data-sap-ui-onInit="module:INNOV8ION_DAY/main">
 </script>
   </head>
 <body class="sapUiBody" id="content">
 <h1>Hello World</h1>
 <p>I'm hosted with GitHub Pages.</p>
+
 </body>
 </html>

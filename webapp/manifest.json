@@ -1,7 +1,7 @@
 {
   "_version": "1.48.0",
   "sap.app": {
-    "id": "com.tyler.project1",
+    "id": "INNOV8ION_DAY.webapp",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -112,7 +112,7 @@
       }
     },
     "rootView": {
-      "viewName": "com.tyler.project1.view.App",
+      "viewName": "INNOV8ION_DAY.webapp.view.App",
       "type": "XML",
       "async": true,
       "id": "App"
