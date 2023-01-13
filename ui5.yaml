@@ -2,7 +2,7 @@
 
 specVersion: "2.5"
 metadata:
-  name: com.tyler.project1
+  name: INNOV8ION_DAY
 type: application
 server:
   customMiddleware:
@@ -27,5 +27,5 @@ server:
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: com.tyler.project1
+        component: INNOV8ION_DAY
         ui5Theme: sap_horizon
