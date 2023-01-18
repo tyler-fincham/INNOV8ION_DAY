@@ -55,3 +55,29 @@
  background-repeat: no-repeat;
  background-position: center 500px;
 }
+
+.sapMBtnBase.sapMBtn.sapMBtnInverted.sapMWizardNextButtonVisible {
+  /* color: aquamarine; */
+  border-color: beige;
+  color: beige;
+  /* background: aliceblue; */
+  /* align-items: flex-end; */
+  /* justify-content: end; */
+  /* display: flex; */
+  right: 35px;
+  float: right;
+  top: 60px;
+}
+
+span.sapMBtnInner.sapMBtnEmphasized {
+  background-color:#33CC66;
+  border-color: #33CC66;
+  color: black;
+  text-shadow: 0 0 0.125rem transparent;
+}
+
+/* .sapMWizardProgressNavStepCircle{
+  background: #1d232a;
+  border-color: white;
+  color: white;
+} */

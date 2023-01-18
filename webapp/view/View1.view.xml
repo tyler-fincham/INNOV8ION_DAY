@@ -9,9 +9,13 @@
             </Select>
         </headerContent>
         <content>
-            <Wizard id="mainWizardId" finishButtonText="Next" stepActivate="onStepActivate">
+            <Wizard id="mainWizardId" finishButtonText="Next" stepActivate="onStepActivate" navigationChange="onNavChnge">
                 <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht1" type="XML" />
-                <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht2" type="XML" />
+                <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht2" type="XML" />                
+                <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht3" type="XML" />
+                <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht4" type="XML" />
+                
+                
             </Wizard>
         </content>
     </Page>

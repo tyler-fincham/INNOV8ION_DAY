@@ -94,10 +94,16 @@ sap.ui.define([
                 this.oCodeEditor.setColorTheme(sSelectedKey);
             },
             onStepActivate: function (oEvent) {
-                this.oOpdrachtArea = oEvent.getSource().getParent().getContent()[0].getItems()[0];
-                this.oCodeEditor = oEvent.getSource().getParent().getContent()[0].getItems()[1];
-                debugger
+                // this.oOpdrachtArea = oEvent.getSource().getParent().getContent()[0].getItems()[0];
+                // this.oCodeEditor = oEvent.getSource().getParent().getContent()[0].getItems()[1];
+                // debugger
 
+            },
+
+            onNavChnge: function(oEvent){
+                // debugger
+                this.oOpdrachtArea = oEvent.getParameters().step.getContent()[0].getItems()[0];
+                this.oCodeEditor = oEvent.getParameters().step.getContent()[0].getItems()[1];
             }
 
 
