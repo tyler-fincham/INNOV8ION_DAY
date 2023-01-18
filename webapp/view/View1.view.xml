@@ -1,5 +1,5 @@
 <mvc:View controllerName="INNOV8ION_DAY.webapp.controller.View1" xmlns:mvc="sap.ui.core.mvc" xmlns:ce="sap.ui.codeeditor" displayBlock="true" xmlns="sap.m" xmlns:core="sap.ui.core">
-    <Page id="page">
+    <Page id="page" backgroundDesign="Transparent">
         <headerContent>
             <Label text="CE Themes:" />
             <Select id="selectBoxId" change="onSelectChange" selectedKey="default" items="{
@@ -9,7 +9,7 @@
             </Select>
         </headerContent>
         <content>
-            <Wizard id="mainWizardId" finishButtonText="Next" stepActivate="onStepActivate" navigationChange="onNavChnge">
+            <Wizard id="mainWizardId" finishButtonText="Next" stepActivate="onStepActivate" navigationChange="onNavChnge" backgroundDesign="Transparent">
                 <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht1" type="XML" />
                 <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht2" type="XML" />                
                 <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht3" type="XML" />

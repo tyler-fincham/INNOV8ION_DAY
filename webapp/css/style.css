@@ -47,14 +47,23 @@
 } */
 .sapMWizardStepTitle {
   color:#33CC66;
+  
 }
 
-.sapMWizardStep.sapMWizardLastActivatedStep.sapMWizardStepActivated {
+#container-INNOV8ION_DAY---App--app {
   height : '100%';
  background-image: url('INNOV8iON logo Green.svg');
  background-repeat: no-repeat;
- background-position: center 500px;
+ background-position: center;
 }
+
+/* .sapMWizardStep.sapMWizardStepActivated{
+  height : '100%';
+ background-image: url('INNOV8iON logo Green.svg');
+ background-color: rgba(0, 0, 0, 0.3);
+ background-repeat: no-repeat;
+ background-position: bottom;
+} */
 
 .sapMBtnBase.sapMBtn.sapMBtnInverted.sapMWizardNextButtonVisible {
   /* color: aquamarine; */
@@ -69,11 +78,24 @@
   top: 60px;
 }
 
+/* .sapMBarRight.sapMBarContainer{
+  background-color:#33CC66;
+
+} */
+
+/* #__label0-bdi{
+  color: black;
+} */
+
 span.sapMBtnInner.sapMBtnEmphasized {
   background-color:#33CC66;
   border-color: #33CC66;
   color: black;
   text-shadow: 0 0 0.125rem transparent;
+}
+
+.sapMWizardStep.sapMWizardStepActivated{
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 /* .sapMWizardProgressNavStepCircle{
