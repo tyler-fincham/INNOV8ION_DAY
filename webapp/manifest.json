@@ -7,7 +7,7 @@
     "applicationVersion": {
       "version": "0.0.1"
     },
-    "title": "{{appTitle}}",
+    "title": "asdf",
     "description": "{{appDescription}}",
     "resources": "resources.json",
     "sourceTemplate": {
@@ -24,6 +24,10 @@
           "localUri": "localService/metadata.xml",
           "odataVersion": "2.0"
         }
+      },
+      "CodeEditorThemes_alias": {
+        "uri": "models/themes.json",
+        "type": "JSON"
       }
     }
   },
@@ -69,6 +73,10 @@
           "bundleName": "com.tyler.project1.i18n.i18n"
         }
       },
+      "CodeEditorThemes": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "CodeEditorThemes_alias"
+      },
       "": {
         "dataSource": "mainService",
         "preload": true,
@@ -87,7 +95,7 @@
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "async": true,
-        "viewPath": "com.tyler.project1.view",
+        "viewPath": "INNOV8ION_DAY.webapp.view",
         "controlAggregation": "pages",
         "controlId": "app",
         "clearControlAggregation": false

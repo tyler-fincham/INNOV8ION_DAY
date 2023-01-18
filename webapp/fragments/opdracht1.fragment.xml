@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:ce="sap.ui.codeeditor">
+    <WizardStep title="Pure Functions" icon="{path: 'CodeEditorThemes>key', formatter: '.formatter.getRandomIcon'}" validated="true">
+        <HBox renderType="Bare">
+            <TextArea  cols="300" rows="" value="A function must pass two tests to be considered “pure” &#13;1.Same inputs always return same outputs. &#13;2.No side-effects" class="textFont" />
+            <ce:CodeEditor height="300px" width="100%" type="javascript" liveChange="onConsoleInput" syntaxHints="true" colorTheme="default" 
+            value="const add = (x, y) => x + y;&#13;&#13;add(2, 4); // 6&#13;&#13;let x = 2;&#13;&#13;const add = (y) => {&#13;  x += y;&#13;};&#13;&#13;add(4); // x === 6 (the first time)" />
+        </HBox>
+        <Button text="Run" press="onRun" />
+        <Button text="Clear" press="onClear" />
+    </WizardStep>
+</core:FragmentDefinition>

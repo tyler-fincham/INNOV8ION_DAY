@@ -1,0 +1,57 @@
+/* Code snippet to load the font file*/
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+/* style class used in views */
+.textarea {
+  font-family : "Roboto";
+}
+
+#container-INNOV8ION_DAY---View1--opdrachtAreaId-inner {
+  font-family: Arial, sans-serif;
+  color:#33CC66;
+}
+
+.app-font-color{
+  color:#33CC66;
+
+}
+
+.sapMWizardProgressNavStep[data-sap-ui-wpn-step-current="true"] .sapMWizardProgressNavStepCircle {
+  background:#33CC66;
+  border-color: #33CC66;
+}
+.sapMWizardProgressNavStep[data-sap-ui-wpn-step-current="true"] .sapMWizardProgressNavStepTitle{
+  color:#33CC66;
+  border-color: #33CC66;
+}
+.sapMWizardStep .sapMWizardStepTitle {
+  color:#33CC66;
+  border-color: #33CC66;
+}
+
+.sapMWizardProgressNavStep[data-sap-ui-wpn-step-current="true"] .sapMWizardProgressNavStepCircle::after{
+  color:#33CC66;
+  border-color: #33CC66;
+  background:#33CC66;
+}
+.sapMBtnInner{
+  color:#33CC66;
+}
+.app-font-color {
+  color:#33CC66;
+}
+/* #container-INNOV8ION_DAY---View1--page-cont {
+  background-image: url('INNOV8ION_DAY/webapp/images/INNOV8iON logo Green.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+} */
+.sapMWizardStepTitle {
+  color:#33CC66;
+}
+
+.sapMWizardStep.sapMWizardLastActivatedStep.sapMWizardStepActivated {
+  height : '100%';
+ background-image: url('INNOV8iON logo Green.svg');
+ background-repeat: no-repeat;
+ background-position: center 500px;
+}

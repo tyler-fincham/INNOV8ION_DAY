@@ -1,7 +1,18 @@
-<mvc:View controllerName="com.tyler.project1.controller.View1"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
-    <Page id="page" title="AFDSF">
-        <content />
+<mvc:View controllerName="INNOV8ION_DAY.webapp.controller.View1" xmlns:mvc="sap.ui.core.mvc" xmlns:ce="sap.ui.codeeditor" displayBlock="true" xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Page id="page">
+        <headerContent>
+            <Label text="CE Themes:" />
+            <Select id="selectBoxId" change="onSelectChange" selectedKey="default" items="{
+                    path: 'CodeEditorThemes>/themes',
+                    sorter: { path: 'name' }}">
+                <core:Item key="{CodeEditorThemes>key}" text="{CodeEditorThemes>name}" />
+            </Select>
+        </headerContent>
+        <content>
+            <Wizard id="mainWizardId" finishButtonText="Next" stepActivate="onStepActivate">
+                <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht1" type="XML" />
+                <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht2" type="XML" />
+            </Wizard>
+        </content>
     </Page>
 </mvc:View>
