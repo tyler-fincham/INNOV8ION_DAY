@@ -8,6 +8,10 @@ sap.ui.define([
             var iRandom = Math.floor(Math.random() * aIcons.length);
             return IconPool.getIconURI(aIcons[iRandom])
             // return aIcons[iRandom];
+        },
+
+        getOpdrachtText: function(param1){
+            return param1;
         }
     };
 });

@@ -16,34 +16,28 @@ sap.ui.define([
             onInit: function () {
 
                 const oThemeModel = this.getOwnerComponent().getModel("CodeEditorThemes");
-                this.getView().setModel(oThemeModel, "CodeEditorThemes");
-                // this.oCodeEditor = this.getView().byId("aCodeEditor");
 
-                // this.oOpdrachtArea = this.getView().byId("opdrachtAreaId");
+                const oOpdrachtenModel = this.getOwnerComponent().getModel("Opdrachten");
+                const oRestoreModel = this.getOwnerComponent().getModel("RestoreData");
+
+                this.getView().setModel(oThemeModel, "CodeEditorThemes");
+                this.getView().setModel(oOpdrachtenModel, "OpdrachtenModel");
+                this.getView().setModel(oRestoreModel, "RestoreData");
+
+                this.oCodeEditor = this.getView().byId("codeEditorId");
+                this.oOpdrachtArea = this.getView().byId("textAreaId");
 
 
             },
 
             onAfterRendering: function () {
-                this.oOpdrachtArea = this.getView().byId("mainWizardId")._getCurrentStepInstance().getContent()[0].getItems()[0]
-                this.oCodeEditor = this.getView().byId("mainWizardId")._getCurrentStepInstance().getContent()[0].getItems()[1]
                 this.oCodeEditor.addCustomCompleter({
                     getCompletions: function (callback, context) {
-                        // callback is provided to us by ACE so we can execute it as shown
-                        // below in order to display suggestions to the user
-                        // ideally, the array argument, provided to the following method call
-                        // will be dynamically generated based on the content of the context
-                        // object
-                        // let's assume the context contains an sPrefix equal to 'read', which
-                        // means the cursor in ACE is at the end of a 'read' word
-                        // by executing the following call, we can show a list of suggestions
-                        // such as: readFile, readStream, readResponse 
                         callback(null, [{
                             name: "map",
                             value: "map",
                             score: "1",
                             meta: "Array Method"
-                            // meta is short info displayed on the right of value						meta: "function"
                         }, {
                             name: "reduce",
                             value: "reduce",
@@ -65,16 +59,21 @@ sap.ui.define([
                 // console.log(this.oOpdrachtArea)
                 // const oDomref = this.oOpdrachtArea.getDomRef();
             },
+
+            //Buttons
             onRun: function (oEvent) {
-                this.oOpdrachtArea = oEvent.getSource().getParent().getContent()[0].getItems()[0];
-                this.oCodeEditor = oEvent.getSource().getParent().getContent()[0].getItems()[1];
-                this.oCodeEditor.fireLiveChange();
-                let sValue = this.oCodeEditor.getValue()
+                const oModel = oEvent.getSource().getModel("OpdrachtenModel");
+                const sPath = oEvent.getSource().getBindingContext("OpdrachtenModel").getPath();
+
+                // this.oCodeEditor.fireLiveChange();
+                let sValue = oModel.getProperty(sPath).ConsoleArea
                 sValue = sValue.replace(/[\r\n]/g, "");
                 try {
 
                     let sEval = eval(sValue);
-                    this.oCodeEditor.setValue(sEval);
+                    oModel.setProperty(`${sPath}/ConsoleArea`, sEval);
+                    // this.oCodeEditor.setValue(sEval);
+
                 } catch (err) {
                     alert(err)
 
@@ -84,8 +83,15 @@ sap.ui.define([
             },
 
             onClear: function (oEvent) {
-                this.oCodeEditor = oEvent.getSource().getParent().getContent()[0].getItems()[1];
-                this.oCodeEditor.setValue("");
+                oEvent.getSource().getModel("OpdrachtenModel").setProperty(oEvent.getSource().getBindingContext("OpdrachtenModel").getPath() + "/ConsoleArea", "");
+                // this.oCodeEditor.setValue("");
+            },
+
+            onReset: function (oEvent) {
+                const sPath = oEvent.getSource().getBindingContext("OpdrachtenModel").getPath();
+                const sOriginalVal = this.getView().getModel("RestoreData").getProperty(sPath).ConsoleArea;
+                this.getView().getModel("OpdrachtenModel").setProperty(`${sPath}/ConsoleArea`, sOriginalVal);
+
             },
 
             onSelectChange: function (oEvent) {
@@ -100,11 +106,12 @@ sap.ui.define([
 
             },
 
-            onNavChnge: function(oEvent){
+            onNavChnge: function (oEvent) {
                 // debugger
                 this.oOpdrachtArea = oEvent.getParameters().step.getContent()[0].getItems()[0];
                 this.oCodeEditor = oEvent.getParameters().step.getContent()[0].getItems()[1];
-            }
+            },
+
 
 
         });

@@ -1,0 +1,24 @@
+{
+    "opdrachtText": [
+        {
+            "Title": "Theorie: Es6 syntactische suiker",
+            "OpdrachtArea": "Vanaf ES6+ kan je bijvoorbeeld voor string comparisons includes, startswith en endswith. Dit bied natuurlijk technisch niks meer maar het doel van de conditie is veel duidelijker en minder generiek dan indexof. Je krijgt hierdoor code wat makkelijker leesbaar en onderhoudbaar is. ",
+            "ConsoleArea": "'Hello World'.indexOf('W') !== -1"
+        },
+        {
+            "Title": "Functional Programming: 2",
+            "OpdrachtArea": "Opdracht 2",
+            "ConsoleArea": "Opdracht 2 console"
+        },
+        {
+            "Title": "Functional Programming: 2",
+            "OpdrachtArea": "Opdracht 2",
+            "ConsoleArea": "Opdracht 2 console"
+        },
+        {
+            "Title": "Functional Programming: Pure Functions",
+            "OpdrachtArea": "A function must pass two tests to be considered “pure” &#13;1.Same inputs always return same outputs. &#13;2.No side-effects",
+            "ConsoleArea": "const add = (x, y) => x + y;\r\radd(2, 4); // 6\r\rlet x = 2;\r\rconst add = (y) => ;\r\radd(4); // x === 6 (the first time)"
+        }
+    ]
+}

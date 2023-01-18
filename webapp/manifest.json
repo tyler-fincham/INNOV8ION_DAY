@@ -28,6 +28,14 @@
       "CodeEditorThemes_alias": {
         "uri": "models/themes.json",
         "type": "JSON"
+      },
+      "Opdrachten_alias": {
+        "uri": "models/opdrachten.json",
+        "type": "JSON"
+      },
+      "Restore_alias": {
+        "uri": "models/opdrachten.json",
+        "type": "JSON"
       }
     }
   },
@@ -76,6 +84,14 @@
       "CodeEditorThemes": {
         "type": "sap.ui.model.json.JSONModel",
         "dataSource": "CodeEditorThemes_alias"
+      },
+      "Opdrachten": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "Opdrachten_alias"
+      },
+      "RestoreData": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "Restore_alias"
       },
       "": {
         "dataSource": "mainService",
