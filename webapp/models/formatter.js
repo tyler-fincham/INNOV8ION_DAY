@@ -10,8 +10,16 @@ sap.ui.define([
             // return aIcons[iRandom];
         },
 
-        getOpdrachtText: function(param1){
-            return param1;
+        getAntwoordButton: function (param1, param2) {
+            if (param2 === "Oefening") {
+                // debugger
+                setTimeout(() => {
+                    return true;
+                }, 200);
+            } else {
+                return false
+            }
+
         }
     };
 });

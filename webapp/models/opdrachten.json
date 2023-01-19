@@ -2,16 +2,22 @@
     "opdrachtText": [
         {
             "Title": "Theorie: Es6 syntactische suiker",
+            "Type": "Theorie",
+            "showAnswer": false,
+            "isValidated": true,
             "OpdrachtArea": "Javascript ES6 is een grote versie update van Javascript wat uitgekomen is in juni 2015. Een paar belangrijke zijn bijv:\n-Let en const keywords\n-Arrow functions\n-Template literals (string template)\n-Classes\n\nSindsdien is er elke jaar ook weer een nieuwe update geweest.Vanaf ES6+ kan je bijvoorbeeld voor string comparisons includes, startswith en endswith. Dit bied natuurlijk technisch niks meer maar het doel van de conditie is veel duidelijker en minder generiek dan bijvoorbeeld indexof. Je krijgt hierdoor code wat makkelijker leesbaar en onderhoudbaar is. ",
             "ConsoleArea": "\"Hello World\".indexOf(\"W\") !== -1;\n\"Hello World\".includes(\"W\");\n\n\/\/ Starts with\r\n'Hello World'.indexOf('Hello') ===   0 ; \r\n'Hello World'.startsWith('Hello');\n\r\n\/\/ Ends with\r\n'Hello World'.indexOf('World') === 'Hello World'.length-'World'.length;\r\n'Hello World'.endsWith('World'));\r\n"
         },
         {
             "Title": "Oefening: Es6 syntactische suiker",
+            "Type": "Oefening",
             "OpdrachtArea": "Maak een functie die een tekenreeks en een woord als argumenten neemt, en retourneert true als de tekenreeks begint met het woord en anders false. Let op! Om de opdracht te halen moet je functie startsWith heten ",
             "ConsoleArea": "function startsWith(str, word) {\r\n    \/\/ schrijf je code hier\r\n}\r\n\r\nstartsWith(\"Hello world\", \"Hello\");",
             "source":"^\\s*function\\s.+\\(.+\\)\\s{[\\s\\S]*?return\\s\\w+\\.startsWith\\(\\w+\\);[\\s\\S]*?}",
             "flags": "m",
-            "antwoord": "function startsWith(str, word) {\r\n    return str.startsWith(word);\r\n}\r\n\r\nstartsWith(\"Hello world\", \"Hello\");"
+            "antwoord": "function startsWith(str, word) {\r\n    return str.startsWith(word);\r\n}\r\n\r\nstartsWith(\"Hello world\", \"Hello\");",
+            "showAnswer": false,
+            "isValidated": false
 
         },
         {
