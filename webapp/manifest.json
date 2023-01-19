@@ -36,6 +36,10 @@
       "Restore_alias": {
         "uri": "models/opdrachten.json",
         "type": "JSON"
+      },
+      "ViewModel_alias": {
+        "uri": "models/viewmodel.json",
+        "type": "JSON"
       }
     }
   },
@@ -92,6 +96,10 @@
       "RestoreData": {
         "type": "sap.ui.model.json.JSONModel",
         "dataSource": "Restore_alias"
+      },
+      "ViewModel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "ViewModel_alias"
       },
       "": {
         "dataSource": "mainService",

@@ -2,6 +2,7 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
     '../models/formatter',
+    "sap/m/MessageBox"
     // "INNOV8ION_DAY/webConsole"
     // "INNOV8ION_DAY/libs/console.js/src/index",
     // "INNOV8ION_DAY/libs/jsconsole/lib/es"
@@ -9,18 +10,19 @@ sap.ui.define([
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, formatter) {
+    function (Controller, JSONModel, formatter, MessageBox) {
         "use strict";
         return Controller.extend("INNOV8ION_DAY.webapp.controller.View1", {
             formatter: formatter,
             onInit: function () {
 
                 const oThemeModel = this.getOwnerComponent().getModel("CodeEditorThemes");
-
+                const oViewModel= this.getOwnerComponent().getModel("ViewModel");
                 const oOpdrachtenModel = this.getOwnerComponent().getModel("Opdrachten");
                 const oRestoreModel = this.getOwnerComponent().getModel("RestoreData");
 
                 this.getView().setModel(oThemeModel, "CodeEditorThemes");
+                this.getView().setModel(oViewModel, "ViewModel");
                 this.getView().setModel(oOpdrachtenModel, "OpdrachtenModel");
                 this.getView().setModel(oRestoreModel, "RestoreData");
 
@@ -64,18 +66,26 @@ sap.ui.define([
             onRun: function (oEvent) {
                 const oModel = oEvent.getSource().getModel("OpdrachtenModel");
                 const sPath = oEvent.getSource().getBindingContext("OpdrachtenModel").getPath();
+                let sValue = oModel.getProperty(sPath).ConsoleArea;
 
-                // this.oCodeEditor.fireLiveChange();
-                let sValue = oModel.getProperty(sPath).ConsoleArea
-                sValue = sValue.replace(/[\r\n]/g, "");
+
                 try {
-
+                    sValue = sValue.replace(/[\r\n]/g, "");
                     let sEval = eval(sValue);
+                    if (oModel.getProperty(sPath).source) {
+                        // let rRegexp = new RegExp(oModel.getProperty(sPath).regexp);
+                        let rRegexp = new RegExp(oModel.getProperty(sPath).source, oModel.getProperty(sPath).flags);
+                        if (rRegexp.test(sValue)) {
+                            MessageBox.success("Goed gedaan!");
+                        } else {
+                            MessageBox.error("Helaas probeer opnieuw!");
+                        }
+                    }
                     oModel.setProperty(`${sPath}/ConsoleArea`, sEval);
                     // this.oCodeEditor.setValue(sEval);
 
                 } catch (err) {
-                    alert(err)
+                    MessageBox.error(err.message);
 
                 }
 
@@ -94,11 +104,21 @@ sap.ui.define([
 
             },
 
+            onAntwoord: function (oEvent) {
+                const sPath = oEvent.getSource().getBindingContext("OpdrachtenModel").getPath();
+                const sAntwoordVal = this.getView().getModel("OpdrachtenModel").getProperty(sPath).antwoord;
+                if (sAntwoordVal) {
+                    this.getView().getModel("OpdrachtenModel").setProperty(`${sPath}/ConsoleArea`, sAntwoordVal);
+
+                }
+            },
+
             onSelectChange: function (oEvent) {
                 const oSelectedItem = oEvent.getParameter("selectedItem");
                 const sSelectedKey = oSelectedItem.getKey();
-                this.oCodeEditor.setColorTheme(sSelectedKey);
+                this.getView().getModel("CodeEditorThemes").setProperty(`/selectedTheme`, sSelectedKey);
             },
+
             onStepActivate: function (oEvent) {
                 // this.oOpdrachtArea = oEvent.getSource().getParent().getContent()[0].getItems()[0];
                 // this.oCodeEditor = oEvent.getSource().getParent().getContent()[0].getItems()[1];
@@ -111,6 +131,13 @@ sap.ui.define([
                 this.oOpdrachtArea = oEvent.getParameters().step.getContent()[0].getItems()[0];
                 this.oCodeEditor = oEvent.getParameters().step.getContent()[0].getItems()[1];
             },
+
+            onComplete: function(oEvent){
+                const sPath = oEvent.getSource().getBindingContext("OpdrachtenModel").getPath();
+                const bValidateStep = this.getView().getModel("OpdrachtenModel").getProperty(`${sPath}`).validateStep;
+
+                this.getView().getModel("OpdrachtenModel").setProperty(`${sPath}/validateStep`, true);
+            }
 
 
 

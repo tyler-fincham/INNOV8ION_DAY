@@ -2,7 +2,7 @@
     <Page id="page" backgroundDesign="Transparent">
         <headerContent>
             <Label id="ceThemesLabelId" text="CE Themes:" />
-            <Select id="selectBoxId" change="onSelectChange" selectedKey="default" items="{
+            <Select id="selectBoxId" change="onSelectChange" selectedKey="default"  items="{
                     path: 'CodeEditorThemes>/themes',
                     sorter: { path: 'name' }}">
                 <core:Item id="themeSelectItemId" key="{CodeEditorThemes>key}" text="{CodeEditorThemes>name}" />
@@ -14,14 +14,15 @@
                 <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht2" type="XML" />                
                 <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht3" type="XML" />
                 <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht4" type="XML" /> -->
-                <WizardStep id="wizStepId" title="{OpdrachtenModel>Title}" icon="{path: 'CodeEditorThemes>key', formatter: '.formatter.getRandomIcon'}">
+                <WizardStep id="wizStepId" title="{OpdrachtenModel>Title}" icon="{path: 'CodeEditorThemes>key', formatter: '.formatter.getRandomIcon'}" validated="{OpdrachtenModel>validateStep}" activate="onComplete">
                     <HBox id="hboxId" renderType="Bare">
                         <TextArea id="textAreaId" cols="300" rows="" editable="false" value="{path: 'OpdrachtenModel>OpdrachtArea', formatter: '.formatter.getOpdrachtText'}" />
-                        <ce:CodeEditor id="codeEditorId" height="300px" width="100%" type="javascript" liveChange="onConsoleInput" syntaxHints="true" colorTheme="default" value="{OpdrachtenModel>ConsoleArea}" />
+                        <ce:CodeEditor id="codeEditorId" height="300px" width="100%" type="javascript" liveChange="onConsoleInput" syntaxHints="true" colorTheme="{CodeEditorThemes>/selectedTheme}" value="{OpdrachtenModel>ConsoleArea}" />
                     </HBox>
                     <Button id="runBtnId" text="Run" press="onRun" />
                     <Button id="clearBtnId" text="Clear" press="onClear" />
                     <Button id="resetBtnId" text="Reset" press="onReset" />
+                    <Button id="antwoordBtnId" visible="{ViewModel>/toonAntwoord}" text="Toon Antwoord" press="onAntwoord" />
                 </WizardStep>
             </Wizard>
         </content>

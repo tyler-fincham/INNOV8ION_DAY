@@ -1,4 +1,5 @@
 {
+    "selectedTheme" : "default",
     "themes": [
         {
             "key": "default",
