@@ -1,7 +1,7 @@
 {
     "opdrachtText": [
         {
-            "Title": "Theorie: Es6 syntactische suiker",
+            "Title": "Es6 syntactische suiker",
             "Type": "Theorie",
             "showAnswer": false,
             "isValidated": true,
@@ -9,11 +9,11 @@
             "ConsoleArea": "\"Hello World\".indexOf(\"W\") !== -1;\n\"Hello World\".includes(\"W\");\n\n\/\/ Starts with\r\n'Hello World'.indexOf('Hello') ===   0 ; \r\n'Hello World'.startsWith('Hello');\n\r\n\/\/ Ends with\r\n'Hello World'.indexOf('World') === 'Hello World'.length-'World'.length;\r\n'Hello World'.endsWith('World'));\r\n"
         },
         {
-            "Title": "Oefening: Es6 syntactische suiker",
+            "Title": "Es6 syntactische suiker",
             "Type": "Oefening",
-            "OpdrachtArea": "Maak een functie die een tekenreeks en een woord als argumenten neemt, en retourneert true als de tekenreeks begint met het woord en anders false. Let op! Om de opdracht te halen moet je functie startsWith heten ",
+            "OpdrachtArea": "Schrijf een functie die een string en een woord als parameters/argumenten neemt, en returned true als de string begint met het woord en anders false.",
             "ConsoleArea": "function startsWith(str, word) {\r\n    \/\/ schrijf je code hier\r\n}\r\n\r\nstartsWith(\"Hello world\", \"Hello\");",
-            "source":"^\\s*function\\s.+\\(.+\\)\\s{[\\s\\S]*?return\\s\\w+\\.startsWith\\(\\w+\\);[\\s\\S]*?}",
+            "source":"^\\s*function\\s.+\\(.+\\)\\s{[\\s\\S]*?return\\s\\w+\\.startsWith\\(\\w+\\)(?:;)?[\\s\\S]*?}",
             "flags": "m",
             "antwoord": "function startsWith(str, word) {\r\n    return str.startsWith(word);\r\n}\r\n\r\nstartsWith(\"Hello world\", \"Hello\");",
             "showAnswer": false,
@@ -21,9 +21,44 @@
 
         },
         {
-            "Title": "Functional Programming: 2",
-            "OpdrachtArea": "Opdracht 2",
-            "ConsoleArea": "Opdracht 2 console"
+            "Title": "Keyword Const",
+            "Type": "Theorie",
+            "OpdrachtArea": "Het sleutelwoord const creëert een constante toewijzing aan een waarde. Met andere woorden, de variabele zelf kan niet opnieuw worden toegewezen of gedeclareerd. Afhankelijk van het waardetype kan de waarde echter in de loop van de tijd wel veranderen. Je kan een const array dus wel muteren.",
+            "ConsoleArea": "const array= [1, 2,3,4,5];\r\narray.push(6);\r\narray;",
+            "showAnswer": false,
+            "isValidated": true
+        },
+        {
+            "Title": "Keyword Const",
+            "Type": "Theorie",
+            "OpdrachtArea": "Om constanten van andere variabelen te onderscheiden, is het een goed idee om hoofdletters te gebruiken voor de naam van de constante. Wanneer je een constante opnieuw een waarde wil  toewijzen, genereert de JavaScript-engine in ieder geval een exception. Bovendien zullen de meeste statische linters ongeldige toewijzingen aan constante variabelen detecteren. Evenzo wordt een variabele die nooit opnieuw wordt toegewezen, aangewezen als kandidaat voor het const-sleutelwoord.\r\n\r\nEen typisch use case voor constanten is om \"magic numbers\" te vermijden. Laten we eens kijken naar een voorbeeld om te illustreren hoe constanten het lezen van code vereenvoudigen.",
+            "ConsoleArea": "\/* global password *\/\r\nif (password.length< 7) {\r\n     throw newError(0x80000F52);\r\n}\r\n\r\nif (! password.match(\/[a-z0-9]\/i)) {\r\n    throw newError(0x80000F53);\r\n}\r\n\r\n\/* global password *\/\r\nconst PASSWORD_MIN_LENGTH= 7;\r\nconst PASSWORD_ALLOWED_CHARS= \/[a-z0-9]\/i;\r\nconst ERROR_PASSWORD_IS_TOO_SHORT= 0x80000F52;\r\nconst ERROR_PASSWORD_HAS_INVALID_CHARS= 0x80000F53;\r\n\r\n\/* Als de password length aangepast moet worden, doe je dat simpelweg in de const. Dit is handig want dat pas je dus gelijk aan overal in je project. *\/\r\nif (password.length< PASSWORD_MIN_LENGTH) {\r\n     throw newError(ERROR_PASSWORD_IS_TOO_SHORT);\r\n}\r\n\/* Door hier de const PASSWORD_ALLOWED_CHARS te gebruiken, is de Regular Expression veel duidelijker geworden wat hij doet. *\/\r\nif (!password.match(PASSWORD_ALLOWED_CHARS)) {\r\n     throw newError(ERROR_PASSWORD_HAS_INVALID_CHARS);\r\n}",
+            "showAnswer": false,
+            "isValidated": true
+        },
+        {
+            "Title": "Keyword Const",
+            "Type": "Theorie",
+            "OpdrachtArea": "Voorbeeld, constanten file in je controller laden om je code meer leesbaar te maken.",
+            "ConsoleArea" : "\/\/ myApp\/constants \r\nsap.ui.define([],function() {\r\n    return{NULL_GUID:'00000000-0000-0000-0000-000000000000',\r\n    executionStatus: {\r\n        information:'I',\r\n        warning:'W',\r\n        error:'E'\r\n        }\r\n    };\r\n});\r\n\r\n\/\/myApp\/View1.controller\r\nsap.ui.define([\r\n    'myApp\/constants',\r\n    'sap\/ui\/core\/library'\r\n], \r\n\r\nfunction(constants, coreLibrary) {\r\n    constexecutionStatus= constants.executionStatus;\r\n    constvalueState= coreLibrary.ValueState;\r\n\r\n    return {\r\n        formatStatusAsValueState:function(status) {\r\n            if (status=== executionStatus.error) {\r\n                returnvalueState.Error;\r\n            }\r\n            returnvalueState.None;\r\n        }\r\n    };\r\n});",
+            "showAnswer": false,
+            "isValidated": true
+        },
+        {
+            "Title": "Hoisting and Function Scoping with var",
+            "Type": "Theorie",
+            "OpdrachtArea": " ",
+            "ConsoleArea" : " ",
+            "showAnswer": false,
+            "isValidated": true
+        },
+        {
+            "Title": " ",
+            "Type": " ",
+            "OpdrachtArea": " ",
+            "ConsoleArea" : " ",
+            "showAnswer": false,
+            "isValidated": true
         },
         {
             "Title": "Functional Programming: Pure Functions",

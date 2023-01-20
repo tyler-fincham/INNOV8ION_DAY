@@ -14,16 +14,16 @@
                 <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht2" type="XML" />                
                 <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht3" type="XML" />
                 <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht4" type="XML" /> -->
-                <WizardStep id="wizStepId" title="{OpdrachtenModel>Title}" icon="{path: 'CodeEditorThemes>key', formatter: '.formatter.getRandomIcon'}" validated="{OpdrachtenModel>isValidated}" activate="onActivate">
+                <WizardStep id="wizStepId" title="{OpdrachtenModel>Type}: {OpdrachtenModel>Title}"  renderType="Page" icon="{path: 'CodeEditorThemes>key', formatter: '.formatter.getRandomIcon'}" validated="{OpdrachtenModel>isValidated}" activate="onActivate">
                     <HBox id="hboxId" renderType="Bare">
                         <TextArea id="textAreaId" cols="300" rows="" editable="false" value="{path: 'OpdrachtenModel>OpdrachtArea'}" />
-                        <ce:CodeEditor id="codeEditorId" height="300px" width="100%" type="javascript" liveChange="onConsoleInput" syntaxHints="true" colorTheme="{CodeEditorThemes>/selectedTheme}" value="{OpdrachtenModel>ConsoleArea}" />
+                        <ce:CodeEditor id="codeEditorId" height="550px" width="100%" type="javascript" liveChange="onConsoleInput" syntaxHints="true" colorTheme="{CodeEditorThemes>/selectedTheme}" value="{OpdrachtenModel>ConsoleArea}" />
                     </HBox>
                     <Button id="runBtnId" text="Run" press="onRun" />
                     <Button id="clearBtnId" text="Clear" press="onClear" />
                     <Button id="resetBtnId" text="Reset" press="onReset" />
                     <Button id="antwoordBtnId" text="Toon Antwoord" visible="{OpdrachtenModel>showAnswer}" press="onAntwoord" />
-
+                    <Button text="Next" press="onNext"/>
                     <!-- <Button id="antwoordBtnId" text="Toon Antwoord"  visible="{parts:[ {path: 'OpdrachtenModel>showAnswer'},{path: 'OpdrachtenModel>Type'}], formatter: '.formatter.getAntwoordButton'}" press="onAntwoord" /> -->
                 </WizardStep>
             </Wizard>

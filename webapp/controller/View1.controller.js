@@ -78,7 +78,7 @@ sap.ui.define([
                         let rRegexp = new RegExp(oModel.getProperty(sPath).source, oModel.getProperty(sPath).flags);
                         if (rRegexp.test(sValue)) {
                             MessageBox.success("Goed gedaan!");
-                            this.getView().getModel("ViewModel").setProperty("/validateStep", false);
+                            oModel.setProperty(`${sPath}/isValidated`, true);
                         } else {
                             MessageBox.error("Helaas probeer opnieuw!");
                         }
@@ -162,8 +162,12 @@ sap.ui.define([
 
                     setTimeout(() => {
                         oModel.setProperty(`${sPath}/showAnswer`, true);
-                      }, 2000);
+                    }, 2000);
                 }
+            },
+
+            onNext: function (oEvent) {
+                this.getView().byId("mainWizardId").nextStep();
             }
 
 
