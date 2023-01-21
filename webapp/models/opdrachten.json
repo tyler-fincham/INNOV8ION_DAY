@@ -6,7 +6,7 @@
             "showAnswer": false,
             "isValidated": true,
             "OpdrachtArea": "Javascript ES6 is een grote versie update van Javascript wat uitgekomen is in juni 2015. Een paar belangrijke zijn bijv:\n-Let en const keywords\n-Arrow functions\n-Template literals (string template)\n-Classes\n\nSindsdien is er elke jaar ook weer een nieuwe update geweest.Vanaf ES6+ kan je bijvoorbeeld voor string comparisons includes, startswith en endswith. Dit bied natuurlijk technisch niks meer maar het doel van de conditie is veel duidelijker en minder generiek dan bijvoorbeeld indexof. Je krijgt hierdoor code wat makkelijker leesbaar en onderhoudbaar is. ",
-            "ConsoleArea": "\"Hello World\".indexOf(\"W\") !== -1;\n\"Hello World\".includes(\"W\");\n\n\/\/ Starts with\r\n'Hello World'.indexOf('Hello') ===   0 ; \r\n'Hello World'.startsWith('Hello');\n\r\n\/\/ Ends with\r\n'Hello World'.indexOf('World') === 'Hello World'.length-'World'.length;\r\n'Hello World'.endsWith('World'));\r\n"
+            "ConsoleArea": "\"Hello World\".indexOf(\"W\") !== -1;\n\"Hello World\".includes(\"W\");\n\n\/\/ Starts with\r\n'Hello World'.indexOf('Hello') ===   0 ; \r\n'Hello World'.startsWith('Hello');\n\r\n\/\/ Ends with\r\n'Hello World'.indexOf('World') === 'Hello World'.length-'World'.length;\r\n'Hello World'.endsWith('World');\r\n"
         },
         {
             "Title": "Es6 syntactische suiker",
@@ -40,7 +40,7 @@
             "Title": "Keyword Const",
             "Type": "Theorie",
             "OpdrachtArea": "Voorbeeld, constanten file in je controller laden om je code meer leesbaar te maken.",
-            "ConsoleArea" : "\/\/ myApp\/constants \r\nsap.ui.define([],function() {\r\n    return{NULL_GUID:'00000000-0000-0000-0000-000000000000',\r\n    executionStatus: {\r\n        information:'I',\r\n        warning:'W',\r\n        error:'E'\r\n        }\r\n    };\r\n});\r\n\r\n\/\/myApp\/View1.controller\r\nsap.ui.define([\r\n    'myApp\/constants',\r\n    'sap\/ui\/core\/library'\r\n], \r\n\r\nfunction(constants, coreLibrary) {\r\n    constexecutionStatus= constants.executionStatus;\r\n    constvalueState= coreLibrary.ValueState;\r\n\r\n    return {\r\n        formatStatusAsValueState:function(status) {\r\n            if (status=== executionStatus.error) {\r\n                returnvalueState.Error;\r\n            }\r\n            returnvalueState.None;\r\n        }\r\n    };\r\n});",
+            "ConsoleArea" : "\/\/ myApp\/constants \r\nsap.ui.define([],function() {\r\n    return {NULL_GUID:'00000000-0000-0000-0000-000000000000',\r\n    executionStatus: {\r\n        information:'I',\r\n        warning:'W',\r\n        error:'E'\r\n        }\r\n    };\r\n});\r\n\r\n\/\/myApp\/View1.controller\r\nsap.ui.define([\r\n    'myApp\/constants',\r\n    'sap\/ui\/core\/library'\r\n], \r\n\r\nfunction(constants, coreLibrary) {\r\n    constexecutionStatus= constants.executionStatus;\r\n    constvalueState= coreLibrary.ValueState;\r\n\r\n    return {\r\n        formatStatusAsValueState:function(status) {\r\n            if (status=== executionStatus.error) {\r\n                returnvalueState.Error;\r\n            }\r\n            returnvalueState.None;\r\n        }\r\n    };\r\n});",
             "showAnswer": false,
             "isValidated": true
         },
@@ -55,6 +55,57 @@
         {
             "Title": "Block Scoping with let and const",
             "Type": "Theorie",
+            "OpdrachtArea": "In tegenstelling tot de keyword var, gebruiken de keywords const en let een enclosing block { } om de scope ervan te defini\u00EBren. Deze regel bootst andere programmeertalen na (zoals C++ en Java) waar een variabele alleen in zijn declaratie block bestaat. De keywords hebben ook geen last van hoisting. De variabele bestaat alleen op en vanaf de regel waar die is gedeclareerd. Zie voorbeeld:",
+            "ConsoleArea" : "\/* eslint-disable *\/\r\nfunction main () {\r\n    console.log(value); \/\/ ReferenceError: value is not defined\r\n    let   value = 1;\r\n}",
+            "showAnswer": false,
+            "isValidated": true
+        },
+        {
+            "Title": "Arrow Functions",
+            "Type": "Theorie",
+            "OpdrachtArea": "De syntax voor arrow functions is een leuke toevoeging aan de JavaScript taal. Arrow functions zijn per definitie anoniem en lekker compact.\r\nLaten we stap voor stap een traditionele anonieme functie ontleden tot de eenvoudigste arrow function. Elke stap onderweg is een geldige arrow function:\r\n",
+            "ConsoleArea" : "\/\/ Traditioneel anonymous function\r\n(function (a) {\r\n  return a + 100;\r\n});\r\n\/\/ 1. Woord \"function\" weghalen en een arrow plaatsen tussen de argumenten en opening body accolades.\r\n(a) => {\r\n  return a + 100;\r\n};\r\n\r\n\/\/ 2. Verwijder de accolades van de body en het woord \"return\" - de return is ge\u00EFmpliceerd.\r\n(a) => a + 100;\r\n\r\n\/\/ 3. Verwijder de paramter haakjes.\r\na => a + 100;\r\n\r\n\/\/Vorbeeld gelijk de functie aanroepen in dezelfde regel:\r\n(a => a + 100)(5);\r\n\r\n\/\/Voorbeeld aanroepen door de functie aan een let toe te wijzen:\r\nlet add100 = a => a + 100;\r\nlet result = add100(5);",
+            "showAnswer": false,
+            "isValidated": true
+        },
+        {
+            "Title": "Arrow Functions",
+            "Type": "Theorie",
+            "OpdrachtArea": "In het vorige voorbeeld mochten zowel de haakjes rond de parameter als de accolades rond de functietekst worden weggelaten. Ze kunnen echter alleen in bepaalde gevallen worden weggelaten.\r\n\r\nDe haakjes kunnen alleen worden weggelaten als de functie een enkele eenvoudige parameter heeft. Als het meerdere parameters heeft, geen parameters of standaard parameters heeft, destructured of rustparameters, zijn de haakjes rond de parameterlijst vereist:\r\n\r\nDe accolades kunnen alleen worden weggelaten als de functie direct een expression returned. Als de body extra verwerkingslijnen heeft, zijn de accolades vereist, en dat geldt ook voor de keyword return. Arrow functions kunnen natuurlijk niet raden wat of wanneer je wat wilt returnen!",
+            "ConsoleArea" : "\/\/ Traditioneel anonieme functie\r\n(function (a, b) {\r\n  return a + b + 100;\r\n});\r\n\r\n\/\/ Arrow function\r\n(a, b) => a + b + 100;\r\n\r\nconst a = 4;\r\nconst b = 2;\r\n\r\n\/\/ Traditioneel anonieme functie (zonder parameters)\r\n(function() {\r\n  return a + b + 100;\r\n});\r\n\r\n\/\/ Arrow function (zonder parameters)\r\n() => a + b + 100;\r\n\r\n\/\/ Traditional anonymous function\r\n(function (a, b) {\r\n  const chuck = 42;\r\n  return a + b + chuck;\r\n});\r\n\r\n\/\/ Arrow function\r\n(a, b) => {\r\n  const chuck = 42;\r\n  return a + b + chuck;\r\n};",
+            "showAnswer": false,
+            "isValidated": true
+        },
+        {
+            "Title": "Speciale Parameters",
+            "Type": "Theorie",
+            "OpdrachtArea": "Rest Parameters\r\nIn JavaScript is een restparameter een manier om een \u200B\u200Bonbepaald aantal argumenten als een array mee te geven. Hiermee kan een functie een willekeurig aantal argumenten accepteren in plaats van een vast aantal argumenten.\r\n\r\nDestructured Parameters\r\nIn JavaScript is destructureren een manier om gegevens uit arrays en objecten te halen en toe te wijzen aan variabelen. Hiermee kan je gegevens uit arrays en objecten halen en toewijzen aan afzonderlijke variabelen. ",
+            "ConsoleArea" : "\/\/ Rest parameter:\r\nfunction add(...numbers) {\r\n  let sum = 0;\r\n  for (let number of numbers) {\r\n    sum += number;\r\n  }\r\n  return sum;\r\n}\r\nconsole.log(add(4, 5, 6, 7, 8)); \/\/ 30\r\n\r\n\/\/destructured pamrameters met array:\r\nfunction add([a, b]) {\r\n  return a + b;\r\n}\r\nconsole.log(add([1, 2])); \/\/ 3\r\n\r\n\/\/destructured pamrameters met object:\r\nfunction print({name, age}) {\r\n  console.log(name, age);\r\n}\r\nprint({name: 'John', age: 30}); \/\/ John 30",
+            "showAnswer": false,
+            "isValidated": true
+        },
+        {
+            "Title": "Wat hebben Arrow Functions met Clean Code te maken?",
+            "Type": "Theorie",
+            "OpdrachtArea": "Naast dat ze lekker compact zijn, lossen arrow functions ook een ander specifiek probleem op. Functies zitten namelijk overal in JavaScript en binnen een functie scope moet je altijd letten op waar \"this\" naar verwijst. Arrow functions hebben niet hun eigen binding aan \"this\". Deze wordt gewoon overge\u00EBrfd van hun parent scope.\r\n\r\nOp welke manier is dit behulpzaam om clean code te schrijven? Laten we als voorbeeld Asynchronous JavaScript and XML (AJAX) callbacks, en promises pakken. Arrow functions maken dit serieus makkelijker omdat niet meer hoeft te klooien met \"this\" binden aan je handler functie.",
+            "ConsoleArea" : " \/\/in je controller OData read:\r\nconst viewStateModel = this.getView().getModel('viewState');\r\n viewStateModel.setProperty('\/busy', true);\r\n this.getView().getModel().read('\/MyEntities', {\r\n    success: (data) => {\r\n        this.processMyEntities(data);\/\/ this is still the controller\r\n        viewStateModel.setProperty('\/busy', false);\r\n    }, error: (error) => {\r\n        console.error(error); this.notifyUserOfError(error);\/\/ this is still the controller\r\n        viewStateModel.setProperty('\/busy', false);\r\n    }\r\n});",
+            "showAnswer": false,
+            "isValidated": true
+        },
+        {
+            "Title": "Array method map()",
+            "Type": "Oefening",
+            "OpdrachtArea": "Gebruik de methode .map() om een \u200B\u200Bnieuwe array met de naam employeeObjects te maken die objecten bevat met de eigenschappen: name, age en skills voor elk object in de array employees.",
+            "ConsoleArea": "const employees = [\r\n  {id: 1, name: 'John', department: 'IT', salary: 50000, age: 30, skills: ['Java', 'JavaScript', 'Python']},\r\n  {id: 2, name: 'Sara', department: 'HR', salary: 55000, age: 25, skills: ['Communication', 'Team management']},\r\n  {id: 3, name: 'Mike', department: 'IT', salary: 60000, age: 35, skills: ['Java', 'C++', 'SQL']},\r\n  {id: 4, name: 'Jane', department: 'HR', salary: 65000, age: 27, skills: ['Communication', 'Recruitment']},\r\n  {id: 5, name: 'Bob', department: 'IT', salary: 70000, age: 40, skills: ['Java', 'JavaScript', 'Python', 'C++']},\r\n  {id: 6, name: 'Alex', department: 'HR', salary: 75000, age: 32, skills: ['Communication', 'Team management', 'Recruitment']}\r\n];",
+            "source":"(const|var|let)\\semployeeObjects\\s=\\semployees\\.map\\(\\({name,\\sage,\\sskills}\\)\\s=>\\s\\({name,\\sage,\\sskills}\\)\\);",
+            "flags": "",
+            "antwoord": "const employees = [\r\n  {id: 1, name: 'John', department: 'IT', salary: 50000, age: 30, skills: ['Java', 'JavaScript', 'Python']},\r\n  {id: 2, name: 'Sara', department: 'HR', salary: 55000, age: 25, skills: ['Communication', 'Team management']},\r\n  {id: 3, name: 'Mike', department: 'IT', salary: 60000, age: 35, skills: ['Java', 'C++', 'SQL']},\r\n  {id: 4, name: 'Jane', department: 'HR', salary: 65000, age: 27, skills: ['Communication', 'Recruitment']},\r\n  {id: 5, name: 'Bob', department: 'IT', salary: 70000, age: 40, skills: ['Java', 'JavaScript', 'Python', 'C++']},\r\n  {id: 6, name: 'Alex', department: 'HR', salary: 75000, age: 32, skills: ['Communication', 'Team management', 'Recruitment']}\r\n];\r\n\r\nconst employeeObjects = employees.map(({name, age, skills}) => ({name, age, skills}));",
+            "showAnswer": false,
+            "isValidated": false
+        },
+        {
+            "Title": " ",
+            "Type": " ",
             "OpdrachtArea": " ",
             "ConsoleArea" : " ",
             "showAnswer": false,

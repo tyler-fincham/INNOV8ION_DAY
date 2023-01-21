@@ -15,9 +15,13 @@
     "web-console": "^0.0.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
     "@sap-ux/ui5-middleware-fe-mockserver": "2",
     "@sap/ux-ui5-tooling": "1",
-    "@ui5/cli": "^2.14.1"
+    "@ui5/cli": "^2.14.1",
+    "babel-standalone": "^6.26.0"
   },
   "scripts": {
     "start": "fiori run --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#comtylerproject1-display\"",

@@ -15,7 +15,21 @@ sap.ui.define([
         return Controller.extend("INNOV8ION_DAY.webapp.controller.View1", {
             formatter: formatter,
             onInit: function () {
+                this.getView().byId("mainWizardId").addStep = function (oWizardStep) {
 
+                    oWizardStep.setWizardContext({ bParentAllowsButtonShow: this.getShowNextButton() });
+                    this._incrementStepCount();
+
+                    return this.addAggregation("steps", oWizardStep);
+                };
+
+
+                // your code
+                var code = "const employeeObjects = employees.map(({name, age, skills}) => ({name, age, skills}));";
+                var result = Babel.transform(code, {presets: ["@babel/preset-env"]});
+                console.log(result.code);
+                // your code
+                
                 const oThemeModel = this.getOwnerComponent().getModel("CodeEditorThemes");
                 const oViewModel = this.getOwnerComponent().getModel("ViewModel");
                 const oOpdrachtenModel = this.getOwnerComponent().getModel("Opdrachten");
@@ -32,7 +46,6 @@ sap.ui.define([
 
 
             },
-
             onAfterRendering: function () {
                 // this.oCodeEditor.addCustomCompleter({
                 //     getCompletions: function (callback, context) {
@@ -68,10 +81,25 @@ sap.ui.define([
                 const oModel = oEvent.getSource().getModel("OpdrachtenModel");
                 const sPath = oEvent.getSource().getBindingContext("OpdrachtenModel").getPath();
                 let sValue = oModel.getProperty(sPath).ConsoleArea;
+                // let match;
+                // let log_regex = /console\.log\((.*)\);/g;
+
+                // while ((match = log_regex.exec(sValue)) !== null) {
+                //     let logValue = match[1];
+                //     sValue = sValue.replace(match[0], "");
+                //     try {
+                //         eval(logValue);
+                //         // sap.m.MessageBox.alert(logValue);
+                //     } catch (e) {
+                //         sap.m.MessageBox.error(e.message);
+                //     }
+                //     sap.m.MessageBox.alert(value);
+                // }
+
 
 
                 try {
-                    sValue = sValue.replace(/[\r\n]/g, "");
+                    sValue = sValue.replace(/\/\/.*[\r\n]/g, "");
                     let sEval = eval(sValue);
                     if (oModel.getProperty(sPath).source) {
                         // let rRegexp = new RegExp(oModel.getProperty(sPath).regexp);
@@ -169,8 +197,6 @@ sap.ui.define([
             onNext: function (oEvent) {
                 this.getView().byId("mainWizardId").nextStep();
             }
-
-
 
         });
     });
