@@ -47,6 +47,14 @@
         {
             "Title": "Hoisting and Function Scoping with var",
             "Type": "Theorie",
+            "OpdrachtArea": "De var-keyword, ge\u00EFntroduceerd aan het begin van JavaScript, is vrij flexibel. Een variabele kan overal in een functie met var worden gedeclareerd en wordt altijd naar boven verplaatst naar het begin van de functie (dit mechanisme staat bekend als hoisting). Als de declaratie echter een opdracht bevat, wordt de waarde ingesteld op de regel van de initialisatie, zoals weergegeven in het voorbeeld: \r\n\r\nDeze flexibiliteit heeft serieuze impact op de code en de meeste linters zullen je het ook zeker laten weten. Onder andere hierdoor wordt dus var gebruiken in principe gezien als \"bad practice\".",
+            "ConsoleArea" : " \/* eslint-disable *\/\r\nfunction main(){\r\n    console.log(value); \r\n    \/\/ no error, value is undefined\r\n    var   value = 1;\r\n    console.log(value); \/\/ 1\r\n}\r\n\r\n\/* eslint-disable *\/\r\nfunction main(){\r\n    var   value = 1;\r\n    var   value;\r\n    console.log(value); \/\/ 1\r\n}",
+            "showAnswer": false,
+            "isValidated": true
+        },
+        {
+            "Title": "Block Scoping with let and const",
+            "Type": "Theorie",
             "OpdrachtArea": " ",
             "ConsoleArea" : " ",
             "showAnswer": false,

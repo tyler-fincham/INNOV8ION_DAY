@@ -1,28 +1,14 @@
-sap.ui.define([],function() {
-    return{NULL_GUID:'00000000-0000-0000-0000-000000000000',
-    executionStatus: {
-        information:'I',
-        warning:'W',
-        error:'E'
-        }
-    };
-});
+/* eslint-disable */
+function main(){
+    console.log(value); 
+    // no error, value is undefined
+    var   value = 1;
+    console.log(value); // 1
+}
 
-sap.ui.define([
-    'myApp/constants',
-    'sap/ui/core/library'
-], 
-
-function(constants, coreLibrary) {
-    constexecutionStatus= constants.executionStatus;
-    constvalueState= coreLibrary.ValueState;
-
-    return {
-        formatStatusAsValueState:function(status) {
-            if (status=== executionStatus.error) {
-                returnvalueState.Error;
-            }
-            returnvalueState.None;
-        }
-    };
-});
+/* eslint-disable */
+functionmain(){
+    var   value = 1;
+    var   value;
+    console.log(value); // 1
+}
