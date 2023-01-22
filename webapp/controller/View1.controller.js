@@ -25,6 +25,7 @@ sap.ui.define([
 
 
                 // your code
+                console.log("asdf main branch")
                 var code = "const employeeObjects = employees.map(({name, age, skills}) => ({name, age, skills}));";
                 var result = Babel.transform(code, {presets: ["@babel/preset-env"]});
                 console.log(result.code);
