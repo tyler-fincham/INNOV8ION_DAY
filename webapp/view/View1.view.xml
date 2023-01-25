@@ -9,7 +9,7 @@
             </Select>
         </headerContent>
         <content>
-            <Wizard id="mainWizardId" steps="{OpdrachtenModel>/opdrachtText}" finishButtonText="Volgende" stepActivate="onStepActivate" navigationChange="onNavChnge" backgroundDesign="Transparent">
+            <Wizard id="mainWizardId" steps="{OpdrachtenModel>/opdrachtText}" finishButtonText="Einde" stepActivate="onStepActivate" navigationChange="onNavChnge" backgroundDesign="Transparent">
                 <!-- <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht1" type="XML" />
                 <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht2" type="XML" />                
                 <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht3" type="XML" />

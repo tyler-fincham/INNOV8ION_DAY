@@ -160,16 +160,32 @@
         {
             "Title": " Promises, async, and await",
             "Type": "Theorie",
-            "OpdrachtArea": "Promises werden ge\u00EFntroduceerd in  ES6, zijn ontworpen om de uitdagingen van asynchrone code op een effici\u00EBnte en elegante manier aan te pakken. \r\n\r\nSyncrhone code:\r\nJavaScript code in een web applicatie wordt uitgevoerd en ge\u00EBvalueerd in een enkele thread. Terwijl iets wordt uitgevoerd, kan de JavaScript-engine niets anders verwerken. Als de code bijvoorbeeld in een infinite loop terechtkomt zal je merken dat de browser vastloopt en dat eventuele click handlers op knoppen niet worden geactiveerd bij het klikken. Deze situatie wordt synchrone code genoemd.\r\n\r\nAsynchrone code:\r\nGelukkig zijn sommige API's ontworpen om de verwerking van de taak naar een andere laag te delegeren. Wanneer een HTTP-verzoek bijvoorbeeld wat gegevens ophaalt van de backend, hoeft de JavaScript engine niet actief te wachten tot het antwoord terugkomt. Het verzoek zelf wordt verwerkt door de netwerklaag zonder interactie met de JavaScript engine. In plaats daarvan wordt er een callback gegeven (of bestaat er een meldingsmechanisme) om de code te activeren wanneer de taak is voltooid. Deze situatie wordt asynchrone code genoemd.",
+            "OpdrachtArea": "Promises werden ge\u00EFntroduceerd in  ES6, zijn ontworpen om de uitdagingen van asynchrone code op een effici\u00EBnte en elegante manier aan te pakken. \r\n\r\nSyncrhone code:\r\nJavaScript code in een web applicatie wordt uitgevoerd en ge\u00EBvalueerd in een enkele thread. Terwijl iets wordt uitgevoerd, kan de JavaScript-engine niets anders verwerken. Als de code bijvoorbeeld in een infinite loop terechtkomt zal je merken dat de browser vastloopt en dat eventuele click handlers op knoppen niet worden geactiveerd bij het klikken. Deze situatie wordt synchrone code genoemd.\r\n\r\nAsynchrone code:\r\nGelukkig zijn sommige API's ontworpen om de verwerking van de taak naar een andere laag te delegeren. Wanneer een HTTP-verzoek bijvoorbeeld wat gegevens ophaalt van de backend, hoeft de JavaScript engine niet actief te wachten tot het antwoord terugkomt. Het verzoek zelf wordt verwerkt door de netwerklaag zonder interactie met de JavaScript engine. In plaats daarvan wordt er een callback gegeven (of bestaat er een meldingsmechanisme) om de code te activeren wanneer de taak is voltooid. Deze situatie wordt asynchrone code genoemd.\r\n\r\nEen JavaScript promise is een object dat de uiteindelijke voltooiing (of mislukking) van een asynchrone bewerking en de resulterende waarde vertegenwoordigt. Promises worden gebruikt om asynchrone bewerkingen in JavaScript af te handelen, zoals netwerkverzoeken of het lezen van een bestand.",
             "ConsoleArea" : "let myPromise = new Promise(function(myResolve, myReject) {\r\n\/\/ hier gaat de code wat tijd kost\r\n\r\n  myResolve(); \/\/ wanneer successful\r\n  myReject();  \/\/ wanneer error\r\n});\r\n\r\n\/\/ \"Consuming Code\" (Must wait for a fulfilled Promise)\r\nmyPromise.then(\r\n  function(value) { \/* code wanneer succesvol *\/ },\r\n  function(error) { \/* code als er een error optreed *\/ }\r\n);",
             "showAnswer": false,
             "isValidated": true
         },
         {
-            "Title": "",
-            "Type": "",
-            "OpdrachtArea": "",
-            "ConsoleArea" : "",
+            "Title": "Async en Await",
+            "Type": "Theorie",
+            "OpdrachtArea": "async en await is net als promises een manier om asynchrone bewerkingen in JavaScript af te handelen. Sterker nog het is gebouwd bovenop promises en maakt het gemakkelijker om met asynchrone code te werken door het meer op synchrone code te laten lijken.\r\n\r\nEen async function is een function die wordt gedeclareerd met het async keyword en die altijd een promise returned. Binnen de functie kan je de keyword await gebruiken om de uitvoering van de functie te pauzeren totdat een promise is vervuld. Zodra de promise is vervuld,\r\nwordt de functie verder uitgevoerd.\r\n\r\nMet async en await is het veel makkelijker om code te schrijven wat leesbaar en makkelijk te begrijpen is. Het is dus een meer compacte en leesbare alternatief dan met promises en callbacks werken.\r\n",
+            "ConsoleArea" : "async function delayedMessageBox() {\r\n    \r\n  MessageBox.alert(\"Starting...\");\r\n  \r\n  await new Promise(resolve => setTimeout(resolve, 2000));\r\n  \r\n  MessageBox.alert(\"...Finished!\");\r\n}\r\n\r\ndelayedMessageBox();",
+            "showAnswer": false,
+            "isValidated": true
+        },
+        {
+            "Title": "Promise vs Async/Await",
+            "Type": "Theorie",
+            "OpdrachtArea": "Zonder await, zou je de response van de fetch met callbacks en promises moeten afhandelen. Dit maakt de code nogal complex en lastig te lezen. Voorbeeld =>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nMet await, kan je de code vereenvoudigen door de fetch te \"awaiten\" en errors afvangen met een try-catch block. Voorbeeld =>\r\n\r\nOp deze manier is de onFilter functie veel duidelijker en leesbaarder\r\n",
+            "ConsoleArea" : "\/\/ traditioinele promises\r\nonFilter: function(oEvent) {\r\n  var sCategory = oEvent.getParameter(\"category\");\r\n  fetch(\"https:\/\/example.com\/products?category=\" + sCategory)\r\n    .then(function(response) {\r\n      return response.json();\r\n    })\r\n    .then(function(data) {\r\n      var oModel = new JSONModel(data);\r\n      this.getView().setModel(oModel, \"products\");\r\n    }.bind(this))\r\n    .catch(function(error) {\r\n      console.error(\"Error fetching products:\", error);\r\n    });\r\n}\r\n\r\n\/\/async\/await\r\nasync onFilter(oEvent) {\r\n  try {\r\n    var sCategory = oEvent.getParameter(\"category\");\r\n    var response = await fetch(\"https:\/\/example.com\/products?category=\" + sCategory);\r\n    var data = await response.json();\r\n    var oModel = new JSONModel(data);\r\n    this.getView().setModel(oModel, \"products\");\r\n  } catch(error) {\r\n    console.error(\"Error fetching products:\", error);\r\n  }\r\n}",
+            "showAnswer": false,
+            "isValidated": true
+        },
+        {
+            "Title": "Default Parameters",
+            "Type": "Theorie",
+            "OpdrachtArea": "Default parameters zijn waarden die worden toegewezen aan een functie parameter als er geen waarde wordt meegegeven wanneer de functie wordt aangeroepen. Hiermee kan je een default gedrag voor een functie specificeren wanneer bepaalde waarden niet worden meegegeven. Met betrekking tot SAPUI5 lijkt deze functionaliteit niet erg krachtig\r\n\r\nVoorbeeld =>",
+            "ConsoleArea" : "function greet(name = \"Bennie Koekoek\") {\r\n  MessageBox.alert(\"Hello, \" + name);\r\n}\r\n\r\ngreet();\r\ngreet(\"Wil Bierman\");",
             "showAnswer": false,
             "isValidated": true
         },
@@ -188,20 +204,6 @@
             "ConsoleArea" : "",
             "showAnswer": false,
             "isValidated": true
-        },
-        {
-            "Title": "",
-            "Type": "",
-            "OpdrachtArea": "",
-            "ConsoleArea" : "",
-            "showAnswer": false,
-            "isValidated": true
-        },
-        
-        {
-            "Title": "Functional Programming: Pure Functions",
-            "OpdrachtArea": "A function must pass two tests to be considered “pure” &#13;1.Same inputs always return same outputs. &#13;2.No side-effects",
-            "ConsoleArea": "const add = (x, y) => x + y;\r\radd(2, 4); // 6\r\rlet x = 2;\r\rconst add = (y) => ;\r\radd(4); // x === 6 (the first time)"
         },
         {
             "Title": "",
