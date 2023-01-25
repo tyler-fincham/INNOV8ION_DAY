@@ -1,4 +1,4 @@
-<mvc:View controllerName="INNOV8ION_DAY.webapp.controller.View1" xmlns:mvc="sap.ui.core.mvc" xmlns:ce="sap.ui.codeeditor" displayBlock="true" xmlns="sap.m" xmlns:core="sap.ui.core">
+<mvc:View controllerName="INNOV8ION_DAY.controller.View1" xmlns:mvc="sap.ui.core.mvc" xmlns:ce="sap.ui.codeeditor" displayBlock="true" xmlns="sap.m" xmlns:core="sap.ui.core">
     <Page id="page" backgroundDesign="Transparent">
         <headerContent>
             <Label id="ceThemesLabelId" text="CE Themes:" />
@@ -16,7 +16,7 @@
                 <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht4" type="XML" /> -->
                 <WizardStep id="wizStepId" title="{OpdrachtenModel>Type}: {OpdrachtenModel>Title}" icon="{path: 'CodeEditorThemes>key', formatter: '.formatter.getRandomIcon'}" validated="{OpdrachtenModel>isValidated}" activate="onActivate">
                     <HBox id="hboxId" renderType="Bare">
-                        <TextArea id="textAreaId" cols="300" rows="" editable="true" value="{path: 'OpdrachtenModel>OpdrachtArea'}" />
+                        <TextArea id="textAreaId" cols="250" rows="" editable="true" value="{path: 'OpdrachtenModel>OpdrachtArea'}" />
                         <ce:CodeEditor id="codeEditorId" height="550px" width="100%" type="javascript" liveChange="onConsoleInput" syntaxHints="true" colorTheme="{CodeEditorThemes>/selectedTheme}" value="{OpdrachtenModel>ConsoleArea}" />
                     </HBox>
                     <Button id="runBtnId" text="Run" press="onRun" />

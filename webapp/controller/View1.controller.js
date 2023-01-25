@@ -12,7 +12,7 @@ sap.ui.define([
      */
     function (Controller, JSONModel, formatter, MessageBox) {
         "use strict";
-        return Controller.extend("INNOV8ION_DAY.webapp.controller.View1", {
+        return Controller.extend("INNOV8ION_DAY.controller.View1", {
             formatter: formatter,
             onInit: function () {
                 this.getView().byId("mainWizardId").addStep = function (oWizardStep) {
@@ -22,15 +22,6 @@ sap.ui.define([
 
                     return this.addAggregation("steps", oWizardStep);
                 };
-
-
-                // your code
-                console.log("asdf main branch")
-                var code = "const employeeObjects = employees.map(({name, age, skills}) => ({name, age, skills}));";
-                var result = Babel.transform(code, {presets: ["@babel/preset-env"]});
-                console.log(result.code);
-                // your code
-                
                 const oThemeModel = this.getOwnerComponent().getModel("CodeEditorThemes");
                 const oViewModel = this.getOwnerComponent().getModel("ViewModel");
                 const oOpdrachtenModel = this.getOwnerComponent().getModel("Opdrachten");
@@ -112,8 +103,15 @@ sap.ui.define([
                             MessageBox.error("Helaas probeer opnieuw!");
                         }
                     }
+                    if (typeof sEval === 'object') {
+
+                        // sEval = JSON.stringify(sEval);
+                        // sEval = JSON.stringify(sEval, null, "\t"); 
+                        sEval = JSON.stringify(sEval, null, 4);
+                    }
                     oModel.setProperty(`${sPath}/ConsoleArea`, sEval);
-                    // this.oCodeEditor.setValue(sEval);
+
+
 
                 } catch (err) {
                     MessageBox.error(err.message);

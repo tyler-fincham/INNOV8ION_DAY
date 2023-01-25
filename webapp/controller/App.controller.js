@@ -5,7 +5,7 @@ sap.ui.define(
     function(BaseController) {
       "use strict";
   
-      return BaseController.extend("INNOV8ION_DAY.webapp.controller.App", {
+      return BaseController.extend("INNOV8ION_DAY.controller.App", {
         onInit() {
         }
       });

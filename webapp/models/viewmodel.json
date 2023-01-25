@@ -1,0 +1,58 @@
+const employees = [
+  {
+    id: 1,
+    name: 'John Smith',
+    department: 'Finance',
+    salary: 75000,
+    age: 35,
+    skills: ['SAP S/4HANA', 'Finance and Controlling', 'Profit Center Accounting']
+  },
+  {
+    id: 2,
+    name: 'Sara Lee',
+    department: 'Human Resources',
+    salary: 65000,
+    age: 30,
+    skills: ['SuccessFactors', 'Employee Central', 'Recruitment']
+  },
+  {
+    id: 3,
+    name: 'Mike Johnson',
+    department: 'IT',
+    salary: 80000,
+    age: 40,
+    skills: ['ABAP', 'Basis Administration', 'SAP HANA', 'SAPUI5']
+  },
+  {
+    id: 4,
+    name: 'Jane Doe',
+    department: 'Procurement',
+    salary: 72000,
+    age: 38,
+    skills: ['SAP MM', 'SAP SRM', 'Procurement']
+  },
+  {
+    id: 5,
+    name: 'Bob Miller',
+    department: 'Logistics',
+    salary: 78000,
+    age: 45,
+    skills: ['SAP LE', 'Transportation Management', 'Warehouse Management']
+  },
+  {
+    id: 6,
+    name: 'Alex Brown',
+    department: 'Sales',
+    salary: 85000,
+    age: 32,
+    skills: ['SAP SD', 'Customer Relationship Management', 'Sales and Distribution']
+  },
+  {
+    id: 7,
+    name: 'Harry Poter',
+    department: 'IT',
+    salary: 70000,
+    age: 31,
+    skills: ['ABAP', 'SAP HANA', 'SAPUI5']
+  }
+];

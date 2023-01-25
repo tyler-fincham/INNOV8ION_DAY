@@ -5,8 +5,8 @@
             "Type": "Theorie",
             "showAnswer": false,
             "isValidated": true,
-            "OpdrachtArea": "Javascript ES6 is een grote versie update van Javascript wat uitgekomen is in juni 2015. Een paar belangrijke zijn bijv:\n-Let en const keywords\n-Arrow functions\n-Template literals (string template)\n-Classes\n\nSindsdien is er elke jaar ook weer een nieuwe update geweest.Vanaf ES6+ kan je bijvoorbeeld voor string comparisons includes, startswith en endswith. Dit bied natuurlijk technisch niks meer maar het doel van de conditie is veel duidelijker en minder generiek dan bijvoorbeeld indexof. Je krijgt hierdoor code wat makkelijker leesbaar en onderhoudbaar is. ",
-            "ConsoleArea": "\"Hello World\".indexOf(\"W\") !== -1;\n\"Hello World\".includes(\"W\");\n\n\/\/ Starts with\r\n'Hello World'.indexOf('Hello') ===   0 ; \r\n'Hello World'.startsWith('Hello');\n\r\n\/\/ Ends with\r\n'Hello World'.indexOf('World') === 'Hello World'.length-'World'.length;\r\n'Hello World'.endsWith('World');\r\n"
+            "OpdrachtArea": "Javascript ES6 was een grote versie update voor Javascript dat was uitgekomen in juni 2015. Een paar belangrijke verbeteringen zijn bijv:\n-Let en const keywords\n-Arrow functions\n-Template literals (string template)\n-Classes\n\n Vanaf 2018 kan je ES6 in elke monderne browser gebruiken. Sinds 2015 is er ook elk jaar weer een nieuwe update geweest.Vanaf ES6+ kan je bijvoorbeeld voor string comparisons includes, startswith en endswith. Dit bied natuurlijk technisch niks meer maar het doel van de conditie is veel duidelijker en minder generiek dan bijvoorbeeld indexof. Je krijgt hierdoor code wat makkelijker leesbaar en onderhoudbaar is. ",
+            "ConsoleArea": "\/\/traditionele indexOf\r\n\"Hello World\".indexOf(\"W\") !== -1;\r\n\r\n\/\/includes \r\n\"Hello World\".includes(\"W\");\r\n\r\n\/\/ Starts with\r\n'Hello World'.indexOf('Hello') ===   0 ; \r\n'Hello World'.startsWith('Hello');\r\n\r\n\/\/ Ends with\r\n'Hello World'.indexOf('World') === 'Hello World'.length-'World'.length;\r\n'Hello World'.endsWith('World');\r\n"
         },
         {
             "Title": "Es6 syntactische suiker",
@@ -95,34 +95,124 @@
         {
             "Title": "Array method map()",
             "Type": "Oefening",
-            "OpdrachtArea": "Gebruik de methode .map() om een \u200B\u200Bnieuwe array met de naam employeeObjects te maken die objecten bevat met de eigenschappen: name, age en skills voor elk object in de array employees.",
+            "OpdrachtArea": "Binnen SAPUI5 ontwikkeling krijgen we veel te maken met arrays en het muteren van arrays. JavaScript bied gelukkig veel handige methodes voor arrays. \r\nVoor wie hem nog niet kent is de array methode map() natuurlijk een van de onmisbare.\r\nDe methode map() cre\u00EBert een nieuwe array die is gevuld met de resultaten van het aanroepen van de meegegeven functie voor elke element in de aanroepende array.\r\n\r\nOefening:\r\nWe hebben nu arrow functions, destructured parameters en const behandeld. Tijd voor een oefening!\r\nStel je hebt een nieuwe tabel gemaakt die data moet bevatten van een bestaand tabel. Veel van de kolom namen komen dus overheen dus die wil je voor nu met rust laten. Je doet een select op je bestaande tabel, maar die bevat teveel kolommen. Je moet nog aanvullende mutaties doen op de data maar je ziet door de grote hoeveelheid data de bomen door het bos niet meer!\r\n\r\nMap is hiervoor een ideaal! Gebruik map() en destructured parameters om een nieuwe array te cre\u00EBeren met minder velden:",
             "ConsoleArea": "const employees = [\r\n  {id: 1, name: 'John', department: 'IT', salary: 50000, age: 30, skills: ['Java', 'JavaScript', 'Python']},\r\n  {id: 2, name: 'Sara', department: 'HR', salary: 55000, age: 25, skills: ['Communication', 'Team management']},\r\n  {id: 3, name: 'Mike', department: 'IT', salary: 60000, age: 35, skills: ['Java', 'C++', 'SQL']},\r\n  {id: 4, name: 'Jane', department: 'HR', salary: 65000, age: 27, skills: ['Communication', 'Recruitment']},\r\n  {id: 5, name: 'Bob', department: 'IT', salary: 70000, age: 40, skills: ['Java', 'JavaScript', 'Python', 'C++']},\r\n  {id: 6, name: 'Alex', department: 'HR', salary: 75000, age: 32, skills: ['Communication', 'Team management', 'Recruitment']}\r\n];",
-            "source":"(const|var|let)\\semployeeObjects\\s=\\semployees\\.map\\(\\({name,\\sage,\\sskills}\\)\\s=>\\s\\({name,\\sage,\\sskills}\\)\\);",
+            "source":"employees\\.map\\(\\({\\s*[a-zA-Z]+\\s*,\\s*[a-zA-Z]+\\s*,\\s*[a-zA-Z]+\\s*}\\)\\s*=>\\s*\\({\\s*[a-zA-Z]+\\s*,\\s*[a-zA-Z]+\\s*,\\s*[a-zA-Z]+\\s*}\\)\\s*\\);",
             "flags": "",
-            "antwoord": "const employees = [\r\n  {id: 1, name: 'John', department: 'IT', salary: 50000, age: 30, skills: ['Java', 'JavaScript', 'Python']},\r\n  {id: 2, name: 'Sara', department: 'HR', salary: 55000, age: 25, skills: ['Communication', 'Team management']},\r\n  {id: 3, name: 'Mike', department: 'IT', salary: 60000, age: 35, skills: ['Java', 'C++', 'SQL']},\r\n  {id: 4, name: 'Jane', department: 'HR', salary: 65000, age: 27, skills: ['Communication', 'Recruitment']},\r\n  {id: 5, name: 'Bob', department: 'IT', salary: 70000, age: 40, skills: ['Java', 'JavaScript', 'Python', 'C++']},\r\n  {id: 6, name: 'Alex', department: 'HR', salary: 75000, age: 32, skills: ['Communication', 'Team management', 'Recruitment']}\r\n];\r\n\r\nconst employeeObjects = employees.map(({name, age, skills}) => ({name, age, skills}));",
+            "antwoord": "const employees = [\r\n    {\r\n        id: 1, name: 'John', department: 'IT', salary: 50000, age: 30, skills: ['Java', 'JavaScript', 'Python']\r\n    },\r\n    {\r\n        id: 2, name: 'Sara', department: 'HR', salary: 55000, age: 25, skills: ['Communication', 'Team management']\r\n    },\r\n    {\r\n        id: 3, name: 'Mike', department: 'IT', salary: 60000, age: 35, skills: ['Java', 'C++', 'SQL']\r\n    },\r\n    {\r\n        id: 4, name: 'Jane', department: 'HR', salary: 65000, age: 27, skills: ['Communication', 'Recruitment']\r\n    },\r\n    {\r\n        id: 5, name: 'Bob', department: 'IT', salary: 70000, age: 40, skills: ['Java', 'JavaScript', 'Python', 'C++']\r\n    },\r\n    {\r\n        id: 6, name: 'Alex', department: 'HR', salary: 75000, age: 32, skills: ['Communication', 'Team management', 'Recruitment']\r\n    }\r\n];\r\n\r\nconst employeeObjects = employees.map(({ name, age, skills}) => ({name, age, skills}));\r\n\r\nemployeeObjects;",
             "showAnswer": false,
             "isValidated": false
         },
         {
-            "Title": " ",
-            "Type": " ",
-            "OpdrachtArea": " ",
-            "ConsoleArea" : " ",
+            "Title": "Template Literals",
+            "Type": "Theorie",
+            "OpdrachtArea": "De template literals syntax is een grote verbetering om strings te generen waar je waarden\/ variabelen kan embedden. Template literals zijn veel compacter en flexibeler ten opzichte van traditionele concatenation met de + operator. Zie voorbeeld =>\r\n\r\n\r\n\r\nTemplate literals beginnen met een backtick en waarden worden ingevoegd met behulp van ${value} waarbij waarde elke geldige JavaScript expression kan zijn (dit wordt interpolatie genoemd). Elke variabele of functie die beschikbaar is in het huidige lexicale scope kan worden ingevoegd, zoals getoond in het voorbeeld hiernaast =>\r\n\r\n\r\n\r\nEen template literal kan over meerdere lijnen spannen =>",
+            "ConsoleArea" : "const firstName = 'arnaud'; \r\n\/\/traditionele concatenation met de + operator\r\n   'Hello ' + firstName;\r\n\/\/template literal syntax\r\n   `Hello ${firstName}`;\r\n   \r\n   \r\n\/\/functie kan je zo in een string embedden   \r\nconst capitalize = (s) => s.charAt(0).toUpperCase()+ s.substring(1);\r\n`Hello ${capitalize(firstName)}`;\r\n\r\n\r\n\r\n\/\/ Outputs op meerdere lijnen\r\n`Hello ${capitalize(firstName)}\r\nToday is ${new Date()}`",
             "showAnswer": false,
             "isValidated": true
         },
         {
-            "Title": " ",
-            "Type": " ",
-            "OpdrachtArea": " ",
-            "ConsoleArea" : " ",
+            "Title": "Tag Functions",
+            "Type": "Theorie",
+            "OpdrachtArea": "Een JavaScript tag functie is een speciaal type functie dat wordt gebruikt om template literals te verwerken. De tag functie wordt gebruikt om de template literals te \"taggen\", waardoor je een bewerking op de string kan doen, zoals parsen of formatteren, voordat deze wordt ge\u00EBvalueerd. De tag functie wordt v\u00F3\u00F3r de template literal geplaatst en wordt ervan gescheiden door een komma. Bijvoorbeeld =>\r\n\r\nIn dit voorbeeld is myTagFunction een tag functie. En \"Hello, $(name)!\" is de template literal. De tag functie heeft toegang tot de placeholders in de string door de strings en values parameters.",
+            "ConsoleArea" : " function template(strings, ...values) {\r\n  let result = \"\";\r\n  values.forEach((value, i) => {\r\n    result += strings[i] + value;\r\n  });\r\n  result += strings[strings.length - 1];\r\n  return result;\r\n}\r\n\r\nconst name = \"Tyler\";\r\nconst age = 34;\r\n\r\ntemplate`My name is ${name} and I am ${age} years old.`\r\n\r\n",
             "showAnswer": false,
             "isValidated": true
         },
+        {
+            "Title": "Spread Syntax",
+            "Type": "Theorie",
+            "OpdrachtArea": "Met de spread syntax kan je iterables zoals array, strings of objects uitbreiden op plaatsen waar nul of meerdere argumenten worden verwacht (denk aan functies aanroepen ). \r\n\r\nJe kan bijvoorbeeld de spread operator (..) gebruiken om de elementen van een array naar een nieuwe array te spreiden =>\r\n\r\nSpread syntax maakt concat veel makkelijker =>\r\n\r\n\r\n\r\n\r\n\r\n\r\nJe kan de spread operator ook gebruiken voor functies aan te roepen =>\r\n\r\nIn dit voorbeeld spreidt de spread operator de elementen van de 'arr' array, waardoor ze als afzonderlijke argumenten aan de functie Math.max() kunnen worden doorgegeven.",
+            "ConsoleArea" : "let arr1 = [1, 2, 3];\r\nlet arr2 = [...arr1, 4, 5, 6];\r\n\r\narr2;\r\n\r\n\r\n\r\nconst fibonacci= [1,2,3,5,8];\r\n\r\n\/\/traditionele concat\r\n[0].concat(fibonacci).concat(13);\r\n\/\/spread syntax\r\n[0, ...fibonacci, 13];\r\n\r\n\r\nlet arr = [1, 2, 3];\r\n\/\/voor de mensen die weinig Math gebruiken (zoals mij) Math.max() returned het hoogste getal\r\nMath.max(...arr)\r\n",
+            "showAnswer": false,
+            "isValidated": true
+        },
+        {
+            "Title": "Rest syntax combineren met object Destructurng ",
+            "Type": "Theorie",
+            "OpdrachtArea": "Met de destructuring assignment zoals we al eerder zagen vereenvoudig je het rechtstreek toewijzen van individuele leden van een object of een array aan variabelen of parameters door deze taak terug te brengen tot \u00E9\u00E9n instructie. Deze syntax maakt dus gebruik van de spread operator om resterende waarden te verzamelen, wat dus de \"rest syntax\" wordt genoemd. Voorbeeld =>",
+            "ConsoleArea" : "const fibonacci= [1,2,3,5,8];\r\nconst [first, second, ...tail] = fibonacci;\r\nfirst;\r\nsecond;\r\ntail;\r\n\r\n",
+            "showAnswer": false,
+            "isValidated": true
+        },
+        {
+            "Title": "Rest syntax combineren met object Destructurng",
+            "Type": "Oefening",
+            "OpdrachtArea": "Gebruik destructuring assignment in combinatie met rest syntax om van httpResponse 3 nieuwe const's te maken genaamd : status, responseText en de rest moet in properties.",
+            "ConsoleArea": "const httpResponse = {\r\n    status: 200,\r\n    statusText:'OK',\r\n    responseText:'Hello World !',\r\n    headers: {'content-type':'text\/plain'}\r\n};\r\n\r\n\/\/schrijf hier je code\r\n\r\nstatus;\r\nresponseText;\r\nproperties;",
+            "source":"const\\s*{(?:\\sstatus,?\\sresponseText,?\\s*)?(?:.+)?}\\s*=\\s*httpResponse;",
+            "flags": "",
+            "antwoord": "const httpResponse = {\r\n    status: 200,\r\n    statusText:'OK',\r\n    responseText:'Hello World !',\r\n    headers: {'content-type':'text\/plain'}\r\n};\r\n\r\nconst{ status, responseText, ...properties } = httpResponse;\r\n\r\nstatus;\r\nresponseText;\r\nproperties;",
+            "showAnswer": false,
+            "isValidated": false
+        },
+        {
+            "Title": "Array method filter()",
+            "Type": "Oefening",
+            "OpdrachtArea": "Soms heb je een nieuwe array nodig met entries die voldoen aan een bepaald soort criteria. Hiervoor is array methode Array.prototype.filter() een perfecte use case.\r\n\r\nGebruik de Array.prototype.filter() methode en cre\u00EBer een nieuwe array met de naam: experiencedS4HANA die alle employees bevat die \"ABAP\" als skill hebben en ouders zijn als 30.",
+            "ConsoleArea": "const INNOV8IONemployees = [\r\n  {\r\n    id: 1,\r\n    name: 'John Smith',\r\n    department: 'Finance',\r\n    salary: 75000,\r\n    age: 35,\r\n    skills: ['SAP S\/4HANA', 'Finance and Controlling', 'Profit Center Accounting']\r\n  },\r\n  {\r\n    id: 2,\r\n    name: 'Sara Lee',\r\n    department: 'Human Resources',\r\n    salary: 65000,\r\n    age: 30,\r\n    skills: ['SuccessFactors', 'Employee Central', 'Recruitment']\r\n  },\r\n  {\r\n    id: 3,\r\n    name: 'Mike Johnson',\r\n    department: 'IT',\r\n    salary: 80000,\r\n    age: 40,\r\n    skills: ['ABAP', 'Basis Administration', 'SAP HANA', 'SAPUI5']\r\n  },\r\n  {\r\n    id: 4,\r\n    name: 'Jane Doe',\r\n    department: 'Procurement',\r\n    salary: 72000,\r\n    age: 38,\r\n    skills: ['SAP MM', 'SAP SRM', 'Procurement']\r\n  },\r\n  {\r\n    id: 5,\r\n    name: 'Bob Miller',\r\n    department: 'Logistics',\r\n    salary: 78000,\r\n    age: 45,\r\n    skills: ['SAP LE', 'Transportation Management', 'Warehouse Management']\r\n  },\r\n  {\r\n    id: 6,\r\n    name: 'Alex Brown',\r\n    department: 'Sales',\r\n    salary: 85000,\r\n    age: 32,\r\n    skills: ['SAP SD', 'Customer Relationship Management', 'Sales and Distribution']\r\n  },\r\n  {\r\n    id: 7,\r\n    name: 'Harry Poter',\r\n    department: 'IT',\r\n    salary: 70000,\r\n    age: 31,\r\n    skills: ['ABAP', 'SAP HANA', 'SAPUI5']\r\n  }\r\n];\r\n\r\nconst experiencedABAP = INNOV8IONemployees.filter(\/*code gaat hier *\/ );\r\n\r\nexperiencedABAP;",
+            "source":"[a-zA-Z]+.skills.includes\\(\"ABAP\"\\) && [a-zA-Z]+.age > 30",
+            "flags": "",
+            "antwoord": "const INNOV8IONemployees = [\r\n  {\r\n    id: 1,\r\n    name: 'John Smith',\r\n    department: 'Finance',\r\n    salary: 75000,\r\n    age: 35,\r\n    skills: ['SAP S\/4HANA', 'Finance and Controlling', 'Profit Center Accounting']\r\n  },\r\n  {\r\n    id: 2,\r\n    name: 'Sara Lee',\r\n    department: 'Human Resources',\r\n    salary: 65000,\r\n    age: 30,\r\n    skills: ['SuccessFactors', 'Employee Central', 'Recruitment']\r\n  },\r\n  {\r\n    id: 3,\r\n    name: 'Mike Johnson',\r\n    department: 'IT',\r\n    salary: 80000,\r\n    age: 40,\r\n    skills: ['ABAP', 'Basis Administration', 'SAP HANA', 'SAPUI5']\r\n  },\r\n  {\r\n    id: 4,\r\n    name: 'Jane Doe',\r\n    department: 'Procurement',\r\n    salary: 72000,\r\n    age: 38,\r\n    skills: ['SAP MM', 'SAP SRM', 'Procurement']\r\n  },\r\n  {\r\n    id: 5,\r\n    name: 'Bob Miller',\r\n    department: 'Logistics',\r\n    salary: 78000,\r\n    age: 45,\r\n    skills: ['SAP LE', 'Transportation Management', 'Warehouse Management']\r\n  },\r\n  {\r\n    id: 6,\r\n    name: 'Alex Brown',\r\n    department: 'Sales',\r\n    salary: 85000,\r\n    age: 32,\r\n    skills: ['SAP SD', 'Customer Relationship Management', 'Sales and Distribution']\r\n  },\r\n  {\r\n    id: 7,\r\n    name: 'Harry Poter',\r\n    department: 'IT',\r\n    salary: 70000,\r\n    age: 31,\r\n    skills: ['ABAP', 'SAP HANA', 'SAPUI5']\r\n  }\r\n];\r\n\r\nconst experiencedABAP = INNOV8IONemployees.filter(employee => \r\n  employee.skills.includes(\"ABAP\") && employee.age > 30\r\n);\r\n\r\nexperiencedABAP;",
+            "showAnswer": false,
+            "isValidated": false
+        },
+        {
+            "Title": " Promises, async, and await",
+            "Type": "Theorie",
+            "OpdrachtArea": "Promises werden ge\u00EFntroduceerd in  ES6, zijn ontworpen om de uitdagingen van asynchrone code op een effici\u00EBnte en elegante manier aan te pakken. \r\n\r\nSyncrhone code:\r\nJavaScript code in een web applicatie wordt uitgevoerd en ge\u00EBvalueerd in een enkele thread. Terwijl iets wordt uitgevoerd, kan de JavaScript-engine niets anders verwerken. Als de code bijvoorbeeld in een infinite loop terechtkomt zal je merken dat de browser vastloopt en dat eventuele click handlers op knoppen niet worden geactiveerd bij het klikken. Deze situatie wordt synchrone code genoemd.\r\n\r\nAsynchrone code:\r\nGelukkig zijn sommige API's ontworpen om de verwerking van de taak naar een andere laag te delegeren. Wanneer een HTTP-verzoek bijvoorbeeld wat gegevens ophaalt van de backend, hoeft de JavaScript engine niet actief te wachten tot het antwoord terugkomt. Het verzoek zelf wordt verwerkt door de netwerklaag zonder interactie met de JavaScript engine. In plaats daarvan wordt er een callback gegeven (of bestaat er een meldingsmechanisme) om de code te activeren wanneer de taak is voltooid. Deze situatie wordt asynchrone code genoemd.",
+            "ConsoleArea" : "let myPromise = new Promise(function(myResolve, myReject) {\r\n\/\/ hier gaat de code wat tijd kost\r\n\r\n  myResolve(); \/\/ wanneer successful\r\n  myReject();  \/\/ wanneer error\r\n});\r\n\r\n\/\/ \"Consuming Code\" (Must wait for a fulfilled Promise)\r\nmyPromise.then(\r\n  function(value) { \/* code wanneer succesvol *\/ },\r\n  function(error) { \/* code als er een error optreed *\/ }\r\n);",
+            "showAnswer": false,
+            "isValidated": true
+        },
+        {
+            "Title": "",
+            "Type": "",
+            "OpdrachtArea": "",
+            "ConsoleArea" : "",
+            "showAnswer": false,
+            "isValidated": true
+        },
+        {
+            "Title": "",
+            "Type": "",
+            "OpdrachtArea": "",
+            "ConsoleArea" : "",
+            "showAnswer": false,
+            "isValidated": true
+        },
+        {
+            "Title": "",
+            "Type": "",
+            "OpdrachtArea": "",
+            "ConsoleArea" : "",
+            "showAnswer": false,
+            "isValidated": true
+        },
+        {
+            "Title": "",
+            "Type": "",
+            "OpdrachtArea": "",
+            "ConsoleArea" : "",
+            "showAnswer": false,
+            "isValidated": true
+        },
+        
         {
             "Title": "Functional Programming: Pure Functions",
             "OpdrachtArea": "A function must pass two tests to be considered “pure” &#13;1.Same inputs always return same outputs. &#13;2.No side-effects",
             "ConsoleArea": "const add = (x, y) => x + y;\r\radd(2, 4); // 6\r\rlet x = 2;\r\rconst add = (y) => ;\r\radd(4); // x === 6 (the first time)"
+        },
+        {
+            "Title": "",
+            "Type": "Oefening",
+            "OpdrachtArea": "",
+            "ConsoleArea": "",
+            "source":"",
+            "flags": "",
+            "antwoord": "",
+            "showAnswer": false,
+            "isValidated": false
         }
     ]
 }

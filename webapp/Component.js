@@ -1,7 +1,7 @@
 sap.ui.define([
   'sap/ui/core/UIComponent'
 ], function (UIComponent) {
-  return UIComponent.extend('INNOV8ION_DAY.webapp.Component', {
+  return UIComponent.extend('INNOV8ION_DAY.Component', {
     metadata: {
       manifest: 'json'
     },

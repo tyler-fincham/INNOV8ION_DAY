@@ -6,24 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Testing Horizion</title>
  <script id="sap-ui-bootstrap" 
-     src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+     src="resources/sap-ui-core.js"
      data-sap-ui-theme="sap_horizon_dark"
      data-sap-ui-resourceroots='{
       "INNOV8ION_DAY": "./"
     }',
      data-sap-ui-compatVersion="edge"
-     data-sap-ui-async="true"
-     data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
-   >
+     data-sap-ui-async="true">
 </script>
-<script src="node_modules/babel-standalone/babel.js"></script>
-<script src="node_modules/@babel/preset-env"></script>
+<script id="locate-reuse-libs" src="./utils/locate-reuse-libs.js"
+        data-sap-ui-manifest-uri="./manifest.json"
+        data-sap-ui-componentName="INNOV8ION_DAY">
+</script> 
 </head>
 <body class="sapUiBody" id="content">
 <div id="console"></div>
 <div
 data-sap-ui-component
-data-name="INNOV8ION_DAY/webapp"
+data-name="INNOV8ION_DAY"
 data-id="container"
 data-settings='{"id" : "INNOV8ION_DAY"}'
 data-handle-validation="true"

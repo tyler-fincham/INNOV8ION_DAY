@@ -1,13 +1,13 @@
 {
   "_version": "1.48.0",
   "sap.app": {
-    "id": "INNOV8ION_DAY.webapp",
+    "id": "INNOV8ION_DAY",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
       "version": "0.0.1"
     },
-    "title": "asdf",
+    "title": "INNOV8ION_DAY",
     "description": "{{appDescription}}",
     "resources": "resources.json",
     "sourceTemplate": {
@@ -119,7 +119,7 @@
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "async": true,
-        "viewPath": "INNOV8ION_DAY.webapp.view",
+        "viewPath": "INNOV8ION_DAY.view",
         "controlAggregation": "pages",
         "controlId": "app",
         "clearControlAggregation": false
@@ -144,7 +144,7 @@
       }
     },
     "rootView": {
-      "viewName": "INNOV8ION_DAY.webapp.view.App",
+      "viewName": "INNOV8ION_DAY.view.App",
       "type": "XML",
       "async": true,
       "id": "App"
