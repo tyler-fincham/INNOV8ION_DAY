@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "2.5"
+metadata:
+ name: openui5-sample-app
+type: application
+resources:
+ configuration:
+   paths:
+     webapp: dist
