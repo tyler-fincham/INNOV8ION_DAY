@@ -32,13 +32,31 @@ sap.ui.define([
                 this.getView().setModel(oOpdrachtenModel, "OpdrachtenModel");
                 this.getView().setModel(oRestoreModel, "RestoreData");
 
-                // this.oCodeEditor = this.getView().byId("codeEditorId");
-                // this.oOpdrachtArea = this.getView().byId("textAreaId");
-                // this.oAntwoordBtn =  this.getView().byId("antwoordBtnId");
-
+                var that = this;
+                jQuery(document).on("keydown", function(e) {
+                    if (e.metaKey && e.shiftKey && e.keyCode === 83) {
+                        that.handleCommandShiftS();
+                    }
+                });
 
             },
-            onAfterRendering: function () {
+            onAfterRendering: async function () {
+                // //development only code
+                // const aWiz = this.getView().byId("mainWizardId");
+                // const aWizSteps = this.getView().byId("mainWizardId").getSteps();
+                // // aWiz.goToStep(aWizSteps[aWizSteps.length - 1]);
+
+                // const q = function(){
+                //     aWizSteps.map(function (step) {
+                //         step.setValidated(true);
+                //         step._activate();                      
+                //     });
+                // } 
+
+                // await q();
+                // aWiz.goToStep(aWizSteps[aWizSteps.length - 1]);
+
+
                 // this.oCodeEditor.addCustomCompleter({
                 //     getCompletions: function (callback, context) {
                 //         callback(null, [{
@@ -73,23 +91,6 @@ sap.ui.define([
                 const oModel = oEvent.getSource().getModel("OpdrachtenModel");
                 const sPath = oEvent.getSource().getBindingContext("OpdrachtenModel").getPath();
                 let sValue = oModel.getProperty(sPath).ConsoleArea;
-                // let match;
-                // let log_regex = /console\.log\((.*)\);/g;
-
-                // while ((match = log_regex.exec(sValue)) !== null) {
-                //     let logValue = match[1];
-                //     sValue = sValue.replace(match[0], "");
-                //     try {
-                //         eval(logValue);
-                //         // sap.m.MessageBox.alert(logValue);
-                //     } catch (e) {
-                //         sap.m.MessageBox.error(e.message);
-                //     }
-                //     sap.m.MessageBox.alert(value);
-                // }
-
-
-
                 try {
                     sValue = sValue.replace(/\/\/.*[\r\n]/g, "");
                     let sEval = eval(sValue);
@@ -104,9 +105,6 @@ sap.ui.define([
                         }
                     }
                     if (typeof sEval === 'object') {
-
-                        // sEval = JSON.stringify(sEval);
-                        // sEval = JSON.stringify(sEval, null, "\t"); 
                         sEval = JSON.stringify(sEval, null, 4);
                     }
                     oModel.setProperty(`${sPath}/ConsoleArea`, sEval);
@@ -176,6 +174,10 @@ sap.ui.define([
                 // debugger
             },
 
+            handleCommandShiftS: function() {
+                sap.ui.getCore().byId(this.getView().byId("mainWizardId").getCurrentStep()).setValidated(true);
+            },
+
             onActivate: function (oEvent) {
                 const sPath = oEvent.getSource().getBindingContext("OpdrachtenModel").getPath();
                 const oModel = this.getView().getModel("OpdrachtenModel");
@@ -189,13 +191,13 @@ sap.ui.define([
 
                     setTimeout(() => {
                         oModel.setProperty(`${sPath}/showAnswer`, true);
-                    }, 2000);
+                    }, 600000);
                 }
-            },
-
-            onNext: function (oEvent) {
-                this.getView().byId("mainWizardId").nextStep();
             }
+
+            // onNext: function (oEvent) {
+            //     this.getView().byId("mainWizardId").nextStep();
+            // }
 
         });
     });

@@ -13,12 +13,11 @@
             "Type": "Oefening",
             "OpdrachtArea": "Schrijf een functie die een string en een woord als parameters/argumenten neemt, en returned true als de string begint met het woord en anders false.",
             "ConsoleArea": "function startsWith(str, word) {\r\n    \/\/ schrijf je code hier\r\n}\r\n\r\nstartsWith(\"Hello world\", \"Hello\");",
-            "source":"^\\s*function\\s.+\\(.+\\)\\s{[\\s\\S]*?return\\s\\w+\\.startsWith\\(\\w+\\)(?:;)?[\\s\\S]*?}",
+            "source": "^\\s*function\\s.+\\(.+\\)\\s{[\\s\\S]*?return\\s\\w+\\.startsWith\\(\\w+\\)(?:;)?[\\s\\S]*?}",
             "flags": "m",
             "antwoord": "function startsWith(str, word) {\r\n    return str.startsWith(word);\r\n}\r\n\r\nstartsWith(\"Hello world\", \"Hello\");",
             "showAnswer": false,
             "isValidated": false
-
         },
         {
             "Title": "Keyword Const",
@@ -40,7 +39,7 @@
             "Title": "Keyword Const",
             "Type": "Theorie",
             "OpdrachtArea": "Voorbeeld, constanten file in je controller laden om je code meer leesbaar te maken.",
-            "ConsoleArea" : "\/\/ myApp\/constants \r\nsap.ui.define([],function() {\r\n    return {NULL_GUID:'00000000-0000-0000-0000-000000000000',\r\n    executionStatus: {\r\n        information:'I',\r\n        warning:'W',\r\n        error:'E'\r\n        }\r\n    };\r\n});\r\n\r\n\/\/myApp\/View1.controller\r\nsap.ui.define([\r\n    'myApp\/constants',\r\n    'sap\/ui\/core\/library'\r\n], \r\n\r\nfunction(constants, coreLibrary) {\r\n    constexecutionStatus= constants.executionStatus;\r\n    constvalueState= coreLibrary.ValueState;\r\n\r\n    return {\r\n        formatStatusAsValueState:function(status) {\r\n            if (status=== executionStatus.error) {\r\n                returnvalueState.Error;\r\n            }\r\n            returnvalueState.None;\r\n        }\r\n    };\r\n});",
+            "ConsoleArea": "\/\/ myApp\/constants \r\nsap.ui.define([],function() {\r\n    return {NULL_GUID:'00000000-0000-0000-0000-000000000000',\r\n    executionStatus: {\r\n        information:'I',\r\n        warning:'W',\r\n        error:'E'\r\n        }\r\n    };\r\n});\r\n\r\n\/\/myApp\/View1.controller\r\nsap.ui.define([\r\n    'myApp\/constants',\r\n    'sap\/ui\/core\/library'\r\n], \r\n\r\nfunction(constants, coreLibrary) {\r\n    constexecutionStatus= constants.executionStatus;\r\n    constvalueState= coreLibrary.ValueState;\r\n\r\n    return {\r\n        formatStatusAsValueState:function(status) {\r\n            if (status=== executionStatus.error) {\r\n                returnvalueState.Error;\r\n            }\r\n            returnvalueState.None;\r\n        }\r\n    };\r\n});",
             "showAnswer": false,
             "isValidated": true
         },
@@ -48,7 +47,7 @@
             "Title": "Hoisting and Function Scoping with var",
             "Type": "Theorie",
             "OpdrachtArea": "De var-keyword, ge\u00EFntroduceerd aan het begin van JavaScript, is vrij flexibel. Een variabele kan overal in een functie met var worden gedeclareerd en wordt altijd naar boven verplaatst naar het begin van de functie (dit mechanisme staat bekend als hoisting). Als de declaratie echter een opdracht bevat, wordt de waarde ingesteld op de regel van de initialisatie, zoals weergegeven in het voorbeeld: \r\n\r\nDeze flexibiliteit heeft serieuze impact op de code en de meeste linters zullen je het ook zeker laten weten. Onder andere hierdoor wordt dus var gebruiken in principe gezien als \"bad practice\".",
-            "ConsoleArea" : " \/* eslint-disable *\/\r\nfunction main(){\r\n    console.log(value); \r\n    \/\/ no error, value is undefined\r\n    var   value = 1;\r\n    console.log(value); \/\/ 1\r\n}\r\n\r\n\/* eslint-disable *\/\r\nfunction main(){\r\n    var   value = 1;\r\n    var   value;\r\n    console.log(value); \/\/ 1\r\n}",
+            "ConsoleArea": " \/* eslint-disable *\/\r\nfunction main(){\r\n    console.log(value); \r\n    \/\/ no error, value is undefined\r\n    var   value = 1;\r\n    console.log(value); \/\/ 1\r\n}\r\n\r\n\/* eslint-disable *\/\r\nfunction main(){\r\n    var   value = 1;\r\n    var   value;\r\n    console.log(value); \/\/ 1\r\n}\r\n\r\nmain();",
             "showAnswer": false,
             "isValidated": true
         },
@@ -56,7 +55,7 @@
             "Title": "Block Scoping with let and const",
             "Type": "Theorie",
             "OpdrachtArea": "In tegenstelling tot de keyword var, gebruiken de keywords const en let een enclosing block { } om de scope ervan te defini\u00EBren. Deze regel bootst andere programmeertalen na (zoals C++ en Java) waar een variabele alleen in zijn declaratie block bestaat. De keywords hebben ook geen last van hoisting. De variabele bestaat alleen op en vanaf de regel waar die is gedeclareerd. Zie voorbeeld:",
-            "ConsoleArea" : "\/* eslint-disable *\/\r\nfunction main () {\r\n    console.log(value); \/\/ ReferenceError: value is not defined\r\n    let   value = 1;\r\n}",
+            "ConsoleArea": "\/* eslint-disable *\/\r\nfunction main () {\r\n    console.log(value); \/\/ ReferenceError: value is not defined\r\n    let   value = 1;\r\n}\r\n\r\nmain();",
             "showAnswer": false,
             "isValidated": true
         },
@@ -64,7 +63,7 @@
             "Title": "Arrow Functions",
             "Type": "Theorie",
             "OpdrachtArea": "De syntax voor arrow functions is een leuke toevoeging aan de JavaScript taal. Arrow functions zijn per definitie anoniem en lekker compact.\r\nLaten we stap voor stap een traditionele anonieme functie ontleden tot de eenvoudigste arrow function. Elke stap onderweg is een geldige arrow function:\r\n",
-            "ConsoleArea" : "\/\/ Traditioneel anonymous function\r\n(function (a) {\r\n  return a + 100;\r\n});\r\n\/\/ 1. Woord \"function\" weghalen en een arrow plaatsen tussen de argumenten en opening body accolades.\r\n(a) => {\r\n  return a + 100;\r\n};\r\n\r\n\/\/ 2. Verwijder de accolades van de body en het woord \"return\" - de return is ge\u00EFmpliceerd.\r\n(a) => a + 100;\r\n\r\n\/\/ 3. Verwijder de paramter haakjes.\r\na => a + 100;\r\n\r\n\/\/Vorbeeld gelijk de functie aanroepen in dezelfde regel:\r\n(a => a + 100)(5);\r\n\r\n\/\/Voorbeeld aanroepen door de functie aan een let toe te wijzen:\r\nlet add100 = a => a + 100;\r\nlet result = add100(5);",
+            "ConsoleArea": "\/\/ Traditioneel anonymous function\r\n(function (a) {\r\n  return a + 100;\r\n});\r\n\/\/ 1. Woord \"function\" weghalen en een arrow plaatsen tussen de argumenten en opening body accolades.\r\n(a) => {\r\n  return a + 100;\r\n};\r\n\r\n\/\/ 2. Verwijder de accolades van de body en het woord \"return\" - de return is ge\u00EFmpliceerd.\r\n(a) => a + 100;\r\n\r\n\/\/ 3. Verwijder de paramter haakjes.\r\na => a + 100;\r\n\r\n\/\/Vorbeeld gelijk de functie aanroepen in dezelfde regel:\r\n(a => a + 100)(5);\r\n\r\n\/\/Voorbeeld aanroepen door de functie aan een let toe te wijzen:\r\nlet add100 = a => a + 100;\r\nlet result = add100(5);",
             "showAnswer": false,
             "isValidated": true
         },
@@ -72,7 +71,7 @@
             "Title": "Arrow Functions",
             "Type": "Theorie",
             "OpdrachtArea": "In het vorige voorbeeld mochten zowel de haakjes rond de parameter als de accolades rond de functietekst worden weggelaten. Ze kunnen echter alleen in bepaalde gevallen worden weggelaten.\r\n\r\nDe haakjes kunnen alleen worden weggelaten als de functie een enkele eenvoudige parameter heeft. Als het meerdere parameters heeft, geen parameters of standaard parameters heeft, destructured of rustparameters, zijn de haakjes rond de parameterlijst vereist:\r\n\r\nDe accolades kunnen alleen worden weggelaten als de functie direct een expression returned. Als de body extra verwerkingslijnen heeft, zijn de accolades vereist, en dat geldt ook voor de keyword return. Arrow functions kunnen natuurlijk niet raden wat of wanneer je wat wilt returnen!",
-            "ConsoleArea" : "\/\/ Traditioneel anonieme functie\r\n(function (a, b) {\r\n  return a + b + 100;\r\n});\r\n\r\n\/\/ Arrow function\r\n(a, b) => a + b + 100;\r\n\r\nconst a = 4;\r\nconst b = 2;\r\n\r\n\/\/ Traditioneel anonieme functie (zonder parameters)\r\n(function() {\r\n  return a + b + 100;\r\n});\r\n\r\n\/\/ Arrow function (zonder parameters)\r\n() => a + b + 100;\r\n\r\n\/\/ Traditional anonymous function\r\n(function (a, b) {\r\n  const chuck = 42;\r\n  return a + b + chuck;\r\n});\r\n\r\n\/\/ Arrow function\r\n(a, b) => {\r\n  const chuck = 42;\r\n  return a + b + chuck;\r\n};",
+            "ConsoleArea": "\/\/ Traditioneel anonieme functie\r\n(function (a, b) {\r\n  return a + b + 100;\r\n});\r\n\r\n\/\/ Arrow function\r\n(a, b) => a + b + 100;\r\n\r\nconst a = 4;\r\nconst b = 2;\r\n\r\n\/\/ Traditioneel anonieme functie (zonder parameters)\r\n(function() {\r\n  return a + b + 100;\r\n});\r\n\r\n\/\/ Arrow function (zonder parameters)\r\n() => a + b + 100;\r\n\r\n\/\/ Traditional anonymous function\r\n(function (a, b) {\r\n  const chuck = 42;\r\n  return a + b + chuck;\r\n});\r\n\r\n\/\/ Arrow function\r\n(a, b) => {\r\n  const chuck = 42;\r\n  return a + b + chuck;\r\n};",
             "showAnswer": false,
             "isValidated": true
         },
@@ -80,7 +79,7 @@
             "Title": "Speciale Parameters",
             "Type": "Theorie",
             "OpdrachtArea": "Rest Parameters\r\nIn JavaScript is een restparameter een manier om een \u200B\u200Bonbepaald aantal argumenten als een array mee te geven. Hiermee kan een functie een willekeurig aantal argumenten accepteren in plaats van een vast aantal argumenten.\r\n\r\nDestructured Parameters\r\nIn JavaScript is destructureren een manier om gegevens uit arrays en objecten te halen en toe te wijzen aan variabelen. Hiermee kan je gegevens uit arrays en objecten halen en toewijzen aan afzonderlijke variabelen. ",
-            "ConsoleArea" : "\/\/ Rest parameter:\r\nfunction add(...numbers) {\r\n  let sum = 0;\r\n  for (let number of numbers) {\r\n    sum += number;\r\n  }\r\n  return sum;\r\n}\r\nconsole.log(add(4, 5, 6, 7, 8)); \/\/ 30\r\n\r\n\/\/destructured pamrameters met array:\r\nfunction add([a, b]) {\r\n  return a + b;\r\n}\r\nconsole.log(add([1, 2])); \/\/ 3\r\n\r\n\/\/destructured pamrameters met object:\r\nfunction print({name, age}) {\r\n  console.log(name, age);\r\n}\r\nprint({name: 'John', age: 30}); \/\/ John 30",
+            "ConsoleArea": "\/\/ Rest parameter:\r\nfunction add(...numbers) {\r\n  let sum = 0;\r\n  for (let number of numbers) {\r\n    sum += number;\r\n  }\r\n  return sum;\r\n}\r\nconsole.log(add(4, 5, 6, 7, 8)); \/\/ 30\r\n\r\n\/\/destructured pamrameters met array:\r\nfunction add([a, b]) {\r\n  return a + b;\r\n}\r\nconsole.log(add([1, 2])); \/\/ 3\r\n\r\n\/\/destructured pamrameters met object:\r\nfunction print({name, age}) {\r\n  console.log(name, age);\r\n}\r\nprint({name: 'John', age: 30}); \/\/ John 30",
             "showAnswer": false,
             "isValidated": true
         },
@@ -88,7 +87,7 @@
             "Title": "Wat hebben Arrow Functions met Clean Code te maken?",
             "Type": "Theorie",
             "OpdrachtArea": "Naast dat ze lekker compact zijn, lossen arrow functions ook een ander specifiek probleem op. Functies zitten namelijk overal in JavaScript en binnen een functie scope moet je altijd letten op waar \"this\" naar verwijst. Arrow functions hebben niet hun eigen binding aan \"this\". Deze wordt gewoon overge\u00EBrfd van hun parent scope.\r\n\r\nOp welke manier is dit behulpzaam om clean code te schrijven? Laten we als voorbeeld Asynchronous JavaScript and XML (AJAX) callbacks, en promises pakken. Arrow functions maken dit serieus makkelijker omdat niet meer hoeft te klooien met \"this\" binden aan je handler functie.",
-            "ConsoleArea" : " \/\/in je controller OData read:\r\nconst viewStateModel = this.getView().getModel('viewState');\r\n viewStateModel.setProperty('\/busy', true);\r\n this.getView().getModel().read('\/MyEntities', {\r\n    success: (data) => {\r\n        this.processMyEntities(data);\/\/ this is still the controller\r\n        viewStateModel.setProperty('\/busy', false);\r\n    }, error: (error) => {\r\n        console.error(error); this.notifyUserOfError(error);\/\/ this is still the controller\r\n        viewStateModel.setProperty('\/busy', false);\r\n    }\r\n});",
+            "ConsoleArea": " \/\/in je controller OData read:\r\nconst viewStateModel = this.getView().getModel('viewState');\r\n viewStateModel.setProperty('\/busy', true);\r\n this.getView().getModel().read('\/MyEntities', {\r\n    success: (data) => {\r\n        this.processMyEntities(data);\/\/ this is still the controller\r\n        viewStateModel.setProperty('\/busy', false);\r\n    }, error: (error) => {\r\n        console.error(error); this.notifyUserOfError(error);\/\/ this is still the controller\r\n        viewStateModel.setProperty('\/busy', false);\r\n    }\r\n});",
             "showAnswer": false,
             "isValidated": true
         },
@@ -97,7 +96,7 @@
             "Type": "Oefening",
             "OpdrachtArea": "Binnen SAPUI5 ontwikkeling krijgen we veel te maken met arrays en het muteren van arrays. JavaScript bied gelukkig veel handige methodes voor arrays. \r\nVoor wie hem nog niet kent is de array methode map() natuurlijk een van de onmisbare.\r\nDe methode map() cre\u00EBert een nieuwe array die is gevuld met de resultaten van het aanroepen van de meegegeven functie voor elke element in de aanroepende array.\r\n\r\nOefening:\r\nWe hebben nu arrow functions, destructured parameters en const behandeld. Tijd voor een oefening!\r\nStel je hebt een nieuwe tabel gemaakt die data moet bevatten van een bestaand tabel. Veel van de kolom namen komen dus overheen dus die wil je voor nu met rust laten. Je doet een select op je bestaande tabel, maar die bevat teveel kolommen. Je moet nog aanvullende mutaties doen op de data maar je ziet door de grote hoeveelheid data de bomen door het bos niet meer!\r\n\r\nMap is hiervoor een ideaal! Gebruik map() en destructured parameters om een nieuwe array te cre\u00EBeren met minder velden:",
             "ConsoleArea": "const employees = [\r\n  {id: 1, name: 'John', department: 'IT', salary: 50000, age: 30, skills: ['Java', 'JavaScript', 'Python']},\r\n  {id: 2, name: 'Sara', department: 'HR', salary: 55000, age: 25, skills: ['Communication', 'Team management']},\r\n  {id: 3, name: 'Mike', department: 'IT', salary: 60000, age: 35, skills: ['Java', 'C++', 'SQL']},\r\n  {id: 4, name: 'Jane', department: 'HR', salary: 65000, age: 27, skills: ['Communication', 'Recruitment']},\r\n  {id: 5, name: 'Bob', department: 'IT', salary: 70000, age: 40, skills: ['Java', 'JavaScript', 'Python', 'C++']},\r\n  {id: 6, name: 'Alex', department: 'HR', salary: 75000, age: 32, skills: ['Communication', 'Team management', 'Recruitment']}\r\n];",
-            "source":"employees\\.map\\(\\({\\s*[a-zA-Z]+\\s*,\\s*[a-zA-Z]+\\s*,\\s*[a-zA-Z]+\\s*}\\)\\s*=>\\s*\\({\\s*[a-zA-Z]+\\s*,\\s*[a-zA-Z]+\\s*,\\s*[a-zA-Z]+\\s*}\\)\\s*\\);",
+            "source": "employees\\.map\\(\\({\\s*[a-zA-Z]+\\s*,\\s*[a-zA-Z]+\\s*,\\s*[a-zA-Z]+\\s*}\\)\\s*=>\\s*\\({\\s*[a-zA-Z]+\\s*,\\s*[a-zA-Z]+\\s*,\\s*[a-zA-Z]+\\s*}\\)\\s*\\);",
             "flags": "",
             "antwoord": "const employees = [\r\n    {\r\n        id: 1, name: 'John', department: 'IT', salary: 50000, age: 30, skills: ['Java', 'JavaScript', 'Python']\r\n    },\r\n    {\r\n        id: 2, name: 'Sara', department: 'HR', salary: 55000, age: 25, skills: ['Communication', 'Team management']\r\n    },\r\n    {\r\n        id: 3, name: 'Mike', department: 'IT', salary: 60000, age: 35, skills: ['Java', 'C++', 'SQL']\r\n    },\r\n    {\r\n        id: 4, name: 'Jane', department: 'HR', salary: 65000, age: 27, skills: ['Communication', 'Recruitment']\r\n    },\r\n    {\r\n        id: 5, name: 'Bob', department: 'IT', salary: 70000, age: 40, skills: ['Java', 'JavaScript', 'Python', 'C++']\r\n    },\r\n    {\r\n        id: 6, name: 'Alex', department: 'HR', salary: 75000, age: 32, skills: ['Communication', 'Team management', 'Recruitment']\r\n    }\r\n];\r\n\r\nconst employeeObjects = employees.map(({ name, age, skills}) => ({name, age, skills}));\r\n\r\nemployeeObjects;",
             "showAnswer": false,
@@ -107,7 +106,7 @@
             "Title": "Template Literals",
             "Type": "Theorie",
             "OpdrachtArea": "De template literals syntax is een grote verbetering om strings te generen waar je waarden\/ variabelen kan embedden. Template literals zijn veel compacter en flexibeler ten opzichte van traditionele concatenation met de + operator. Zie voorbeeld =>\r\n\r\n\r\n\r\nTemplate literals beginnen met een backtick en waarden worden ingevoegd met behulp van ${value} waarbij waarde elke geldige JavaScript expression kan zijn (dit wordt interpolatie genoemd). Elke variabele of functie die beschikbaar is in het huidige lexicale scope kan worden ingevoegd, zoals getoond in het voorbeeld hiernaast =>\r\n\r\n\r\n\r\nEen template literal kan over meerdere lijnen spannen =>",
-            "ConsoleArea" : "const firstName = 'arnaud'; \r\n\/\/traditionele concatenation met de + operator\r\n   'Hello ' + firstName;\r\n\/\/template literal syntax\r\n   `Hello ${firstName}`;\r\n   \r\n   \r\n\/\/functie kan je zo in een string embedden   \r\nconst capitalize = (s) => s.charAt(0).toUpperCase()+ s.substring(1);\r\n`Hello ${capitalize(firstName)}`;\r\n\r\n\r\n\r\n\/\/ Outputs op meerdere lijnen\r\n`Hello ${capitalize(firstName)}\r\nToday is ${new Date()}`",
+            "ConsoleArea": "const firstName = 'arnaud'; \r\n\/\/traditionele concatenation met de + operator\r\n   'Hello ' + firstName;\r\n\/\/template literal syntax\r\n   `Hello ${firstName}`;\r\n   \r\n   \r\n\/\/functie kan je zo in een string embedden   \r\nconst capitalize = (s) => s.charAt(0).toUpperCase()+ s.substring(1);\r\n`Hello ${capitalize(firstName)}`;\r\n\r\n\r\n\r\n\/\/ Outputs op meerdere lijnen\r\n`Hello ${capitalize(firstName)}\r\nToday is ${new Date()}`",
             "showAnswer": false,
             "isValidated": true
         },
@@ -115,7 +114,7 @@
             "Title": "Tag Functions",
             "Type": "Theorie",
             "OpdrachtArea": "Een JavaScript tag functie is een speciaal type functie dat wordt gebruikt om template literals te verwerken. De tag functie wordt gebruikt om de template literals te \"taggen\", waardoor je een bewerking op de string kan doen, zoals parsen of formatteren, voordat deze wordt ge\u00EBvalueerd. De tag functie wordt v\u00F3\u00F3r de template literal geplaatst en wordt ervan gescheiden door een komma. Bijvoorbeeld =>\r\n\r\nIn dit voorbeeld is myTagFunction een tag functie. En \"Hello, $(name)!\" is de template literal. De tag functie heeft toegang tot de placeholders in de string door de strings en values parameters.",
-            "ConsoleArea" : " function template(strings, ...values) {\r\n  let result = \"\";\r\n  values.forEach((value, i) => {\r\n    result += strings[i] + value;\r\n  });\r\n  result += strings[strings.length - 1];\r\n  return result;\r\n}\r\n\r\nconst name = \"Tyler\";\r\nconst age = 34;\r\n\r\ntemplate`My name is ${name} and I am ${age} years old.`\r\n\r\n",
+            "ConsoleArea": " function template(strings, ...values) {\r\n  let result = \"\";\r\n  values.forEach((value, i) => {\r\n    result += strings[i] + value;\r\n  });\r\n  result += strings[strings.length - 1];\r\n  return result;\r\n}\r\n\r\nconst name = \"Tyler\";\r\nconst age = 34;\r\n\r\ntemplate`My name is ${name} and I am ${age} years old.`\r\n\r\n",
             "showAnswer": false,
             "isValidated": true
         },
@@ -123,24 +122,24 @@
             "Title": "Spread Syntax",
             "Type": "Theorie",
             "OpdrachtArea": "Met de spread syntax kan je iterables zoals array, strings of objects uitbreiden op plaatsen waar nul of meerdere argumenten worden verwacht (denk aan functies aanroepen ). \r\n\r\nJe kan bijvoorbeeld de spread operator (..) gebruiken om de elementen van een array naar een nieuwe array te spreiden =>\r\n\r\nSpread syntax maakt concat veel makkelijker =>\r\n\r\n\r\n\r\n\r\n\r\n\r\nJe kan de spread operator ook gebruiken voor functies aan te roepen =>\r\n\r\nIn dit voorbeeld spreidt de spread operator de elementen van de 'arr' array, waardoor ze als afzonderlijke argumenten aan de functie Math.max() kunnen worden doorgegeven.",
-            "ConsoleArea" : "let arr1 = [1, 2, 3];\r\nlet arr2 = [...arr1, 4, 5, 6];\r\n\r\narr2;\r\n\r\n\r\n\r\nconst fibonacci= [1,2,3,5,8];\r\n\r\n\/\/traditionele concat\r\n[0].concat(fibonacci).concat(13);\r\n\/\/spread syntax\r\n[0, ...fibonacci, 13];\r\n\r\n\r\nlet arr = [1, 2, 3];\r\n\/\/voor de mensen die weinig Math gebruiken (zoals mij) Math.max() returned het hoogste getal\r\nMath.max(...arr)\r\n",
+            "ConsoleArea": "let arr1 = [1, 2, 3];\r\nlet arr2 = [...arr1, 4, 5, 6];\r\n\r\narr2;\r\n\r\n\r\n\r\nconst fibonacci= [1,2,3,5,8];\r\n\r\n\/\/traditionele concat\r\n[0].concat(fibonacci).concat(13);\r\n\/\/spread syntax\r\n[0, ...fibonacci, 13];\r\n\r\n\r\nlet arr = [1, 2, 3];\r\n\/\/voor de mensen die weinig Math gebruiken (zoals mij) Math.max() returned het hoogste getal\r\nMath.max(...arr)\r\n",
             "showAnswer": false,
             "isValidated": true
         },
         {
-            "Title": "Rest syntax combineren met object Destructurng ",
+            "Title": "Rest syntax combineren met object destructuring ",
             "Type": "Theorie",
             "OpdrachtArea": "Met de destructuring assignment zoals we al eerder zagen vereenvoudig je het rechtstreek toewijzen van individuele leden van een object of een array aan variabelen of parameters door deze taak terug te brengen tot \u00E9\u00E9n instructie. Deze syntax maakt dus gebruik van de spread operator om resterende waarden te verzamelen, wat dus de \"rest syntax\" wordt genoemd. Voorbeeld =>",
-            "ConsoleArea" : "const fibonacci= [1,2,3,5,8];\r\nconst [first, second, ...tail] = fibonacci;\r\nfirst;\r\nsecond;\r\ntail;\r\n\r\n",
+            "ConsoleArea": "const fibonacci= [1,2,3,5,8];\r\nconst [first, second, ...tail] = fibonacci;\r\nfirst;\r\nsecond;\r\ntail;\r\n\r\n",
             "showAnswer": false,
             "isValidated": true
         },
         {
-            "Title": "Rest syntax combineren met object Destructurng",
+            "Title": "Rest syntax combineren met object destructuring",
             "Type": "Oefening",
             "OpdrachtArea": "Gebruik destructuring assignment in combinatie met rest syntax om van httpResponse 3 nieuwe const's te maken genaamd : status, responseText en de rest moet in properties.",
             "ConsoleArea": "const httpResponse = {\r\n    status: 200,\r\n    statusText:'OK',\r\n    responseText:'Hello World !',\r\n    headers: {'content-type':'text\/plain'}\r\n};\r\n\r\n\/\/schrijf hier je code\r\n\r\nstatus;\r\nresponseText;\r\nproperties;",
-            "source":"const\\s*{(?:\\sstatus,?\\sresponseText,?\\s*)?(?:.+)?}\\s*=\\s*httpResponse;",
+            "source": "const\\s*{(?:\\sstatus,?\\sresponseText,?\\s*)?(?:.+)?}\\s*=\\s*httpResponse;",
             "flags": "",
             "antwoord": "const httpResponse = {\r\n    status: 200,\r\n    statusText:'OK',\r\n    responseText:'Hello World !',\r\n    headers: {'content-type':'text\/plain'}\r\n};\r\n\r\nconst{ status, responseText, ...properties } = httpResponse;\r\n\r\nstatus;\r\nresponseText;\r\nproperties;",
             "showAnswer": false,
@@ -151,9 +150,20 @@
             "Type": "Oefening",
             "OpdrachtArea": "Soms heb je een nieuwe array nodig met entries die voldoen aan een bepaald soort criteria. Hiervoor is array methode Array.prototype.filter() een perfecte use case.\r\n\r\nGebruik de Array.prototype.filter() methode en cre\u00EBer een nieuwe array met de naam: experiencedS4HANA die alle employees bevat die \"ABAP\" als skill hebben en ouders zijn als 30.",
             "ConsoleArea": "const INNOV8IONemployees = [\r\n  {\r\n    id: 1,\r\n    name: 'John Smith',\r\n    department: 'Finance',\r\n    salary: 75000,\r\n    age: 35,\r\n    skills: ['SAP S\/4HANA', 'Finance and Controlling', 'Profit Center Accounting']\r\n  },\r\n  {\r\n    id: 2,\r\n    name: 'Sara Lee',\r\n    department: 'Human Resources',\r\n    salary: 65000,\r\n    age: 30,\r\n    skills: ['SuccessFactors', 'Employee Central', 'Recruitment']\r\n  },\r\n  {\r\n    id: 3,\r\n    name: 'Mike Johnson',\r\n    department: 'IT',\r\n    salary: 80000,\r\n    age: 40,\r\n    skills: ['ABAP', 'Basis Administration', 'SAP HANA', 'SAPUI5']\r\n  },\r\n  {\r\n    id: 4,\r\n    name: 'Jane Doe',\r\n    department: 'Procurement',\r\n    salary: 72000,\r\n    age: 38,\r\n    skills: ['SAP MM', 'SAP SRM', 'Procurement']\r\n  },\r\n  {\r\n    id: 5,\r\n    name: 'Bob Miller',\r\n    department: 'Logistics',\r\n    salary: 78000,\r\n    age: 45,\r\n    skills: ['SAP LE', 'Transportation Management', 'Warehouse Management']\r\n  },\r\n  {\r\n    id: 6,\r\n    name: 'Alex Brown',\r\n    department: 'Sales',\r\n    salary: 85000,\r\n    age: 32,\r\n    skills: ['SAP SD', 'Customer Relationship Management', 'Sales and Distribution']\r\n  },\r\n  {\r\n    id: 7,\r\n    name: 'Harry Poter',\r\n    department: 'IT',\r\n    salary: 70000,\r\n    age: 31,\r\n    skills: ['ABAP', 'SAP HANA', 'SAPUI5']\r\n  }\r\n];\r\n\r\nconst experiencedABAP = INNOV8IONemployees.filter(\/*code gaat hier *\/ );\r\n\r\nexperiencedABAP;",
-            "source":"[a-zA-Z]+.skills.includes\\(\"ABAP\"\\) && [a-zA-Z]+.age > 30",
+            "source": "[a-zA-Z]+.skills.includes\\(\"ABAP\"\\) && [a-zA-Z]+.age > 30",
             "flags": "",
             "antwoord": "const INNOV8IONemployees = [\r\n  {\r\n    id: 1,\r\n    name: 'John Smith',\r\n    department: 'Finance',\r\n    salary: 75000,\r\n    age: 35,\r\n    skills: ['SAP S\/4HANA', 'Finance and Controlling', 'Profit Center Accounting']\r\n  },\r\n  {\r\n    id: 2,\r\n    name: 'Sara Lee',\r\n    department: 'Human Resources',\r\n    salary: 65000,\r\n    age: 30,\r\n    skills: ['SuccessFactors', 'Employee Central', 'Recruitment']\r\n  },\r\n  {\r\n    id: 3,\r\n    name: 'Mike Johnson',\r\n    department: 'IT',\r\n    salary: 80000,\r\n    age: 40,\r\n    skills: ['ABAP', 'Basis Administration', 'SAP HANA', 'SAPUI5']\r\n  },\r\n  {\r\n    id: 4,\r\n    name: 'Jane Doe',\r\n    department: 'Procurement',\r\n    salary: 72000,\r\n    age: 38,\r\n    skills: ['SAP MM', 'SAP SRM', 'Procurement']\r\n  },\r\n  {\r\n    id: 5,\r\n    name: 'Bob Miller',\r\n    department: 'Logistics',\r\n    salary: 78000,\r\n    age: 45,\r\n    skills: ['SAP LE', 'Transportation Management', 'Warehouse Management']\r\n  },\r\n  {\r\n    id: 6,\r\n    name: 'Alex Brown',\r\n    department: 'Sales',\r\n    salary: 85000,\r\n    age: 32,\r\n    skills: ['SAP SD', 'Customer Relationship Management', 'Sales and Distribution']\r\n  },\r\n  {\r\n    id: 7,\r\n    name: 'Harry Poter',\r\n    department: 'IT',\r\n    salary: 70000,\r\n    age: 31,\r\n    skills: ['ABAP', 'SAP HANA', 'SAPUI5']\r\n  }\r\n];\r\n\r\nconst experiencedABAP = INNOV8IONemployees.filter(employee => \r\n  employee.skills.includes(\"ABAP\") && employee.age > 30\r\n);\r\n\r\nexperiencedABAP;",
+            "showAnswer": false,
+            "isValidated": false
+        },
+        {
+            "Title": "Array method reduce()",
+            "Type": "Oefening",
+            "OpdrachtArea": "Array.prototype.reduce() is een methode waarmee je door een array kunt itereren en deze kunt reduceren tot een enkele waarde door een callback functie toe te passen voor elke obj\/element. De callback functie heeft twee argumenten: de accumulator, die de return waarde van de callback verzamelt, en de huidige waarde. De eerste keer dat de callback wordt aangeroepen, zijn de accumulator en de huidige waarde de eerste twee elementen in de array. De callback functie retourneert een nieuwe accumulator waarde, die vervolgens bij de volgende aanroep wordt gebruikt. Dit proces gaat door totdat alle elementen in de array zijn verwerkt. De uiteindelijke waarde van de accumulator wordt geretourneerd als resultaat van de reduce methode.\r\n\r\nOefening:\r\nSchrijf je eigen reduce om alle innov8tors te groeperen per expertise =>",
+            "ConsoleArea": "const innov8tors = [\r\n  { name: \"Frank\", expertise: [\"Sales\"] },\r\n  { name: \"Iemke\", expertise: [\"ABAP\", \"SAPUI5\", \"Fiori\", \"Management\"] },\r\n  { name: \"Jan-Willem\", expertise: [\"ABAP\", \"SAPUI5\", \"Fiori\"] },\r\n  { name: \"Julian Kuipers\", expertise: [\"ABAP\", \"SAPUI5\", \"Fiori\"] },\r\n  { name: \"Olaf Kampers\", expertise: [\"ABAP\", \"SAPUI5\", \"Fiori\"]},\r\n  { name: \"Rob\", expertise: [\"Sales\"] },\r\n  { name: \"Tyler\", expertise: [\"ABAP\", \"SAPUI5\", \"Fiori\"]},\r\n  { name: \"Wim\", expertise: [\"ABAP\", \"SAPUI5\", \"Fiori\"] },\r\n  { name: \"Xander\", expertise: [\"ABAP\", \"SAPUI5\", \"Fiori\", \"Management\"]},\r\n  { name: \"Jens\", expertise: [\"ABAP\", \"SAPUI5\", \"Fiori\"]},\r\n  { name: \"Anouk\", expertise: [\"ABAP\", \"SAPUI5\", \"Fiori\"] },\r\n  { name: \"Andre\", expertise: [\"Management\"]}\r\n];\r\n\r\n\r\n\r\ninnov8tors.reduce((acc, obj) => {\r\n \/\/code gaat hier\r\n \r\n}, {});\r\n\r\n",
+            "source": "[a-zA-Z]+.[a-zA-Z]+.forEach\\([a-zA-Z]+ => {[\\s\\S]*?const [a-zA-Z]+ = [a-zA-Z]+.\\[[a-zA-Z]+] \\|\\| \\[\\];[\\s\\S]*?[a-zA-Z]+.\\[[a-zA-Z]+] = \\[...[a-zA-Z]+, [a-zA-Z]+.name];[\\s\\S]*?return [a-zA-Z]+;",
+            "flags": "",
+            "antwoord": "const innov8tors = [\r\n  { name: \"Frank\", expertise: [\"Sales\"] },\r\n  { name: \"Iemke\", expertise: [\"ABAP\", \"SAPUI5\", \"Fiori\", \"Management\"] },\r\n  { name: \"Jan-Willem\", expertise: [\"ABAP\", \"SAPUI5\", \"Fiori\"] },\r\n  { name: \"Julian Kuipers\", expertise: [\"ABAP\", \"SAPUI5\", \"Fiori\"] },\r\n  { name: \"Olaf Kampers\", expertise: [\"ABAP\", \"SAPUI5\", \"Fiori\"]},\r\n  { name: \"Rob\", expertise: [\"Sales\"] },\r\n  { name: \"Tyler\", expertise: [\"ABAP\", \"SAPUI5\", \"Fiori\"]},\r\n  { name: \"Wim\", expertise: [\"ABAP\", \"SAPUI5\", \"Fiori\"] },\r\n  { name: \"Xander\", expertise: [\"ABAP\", \"SAPUI5\", \"Fiori\", \"Management\"]},\r\n  { name: \"Jens\", expertise: [\"ABAP\", \"SAPUI5\", \"Fiori\"]},\r\n  { name: \"Anouk\", expertise: [\"ABAP\", \"SAPUI5\", \"Fiori\"] },\r\n  { name: \"Andre\", expertise: [\"Management\"]}\r\n];\r\n\r\n\r\n\r\ninnov8tors.reduce((acc, obj) => {\r\n    obj.expertise.forEach(expertise => {\r\n        const curGroup = acc[expertise] || [];\r\n        acc[expertise] = [...curGroup, obj.name];\r\n    });\r\n    return acc;\r\n}, {});\r\n",
             "showAnswer": false,
             "isValidated": false
         },
@@ -161,15 +171,15 @@
             "Title": " Promises, async, and await",
             "Type": "Theorie",
             "OpdrachtArea": "Promises werden ge\u00EFntroduceerd in  ES6, zijn ontworpen om de uitdagingen van asynchrone code op een effici\u00EBnte en elegante manier aan te pakken. \r\n\r\nSyncrhone code:\r\nJavaScript code in een web applicatie wordt uitgevoerd en ge\u00EBvalueerd in een enkele thread. Terwijl iets wordt uitgevoerd, kan de JavaScript-engine niets anders verwerken. Als de code bijvoorbeeld in een infinite loop terechtkomt zal je merken dat de browser vastloopt en dat eventuele click handlers op knoppen niet worden geactiveerd bij het klikken. Deze situatie wordt synchrone code genoemd.\r\n\r\nAsynchrone code:\r\nGelukkig zijn sommige API's ontworpen om de verwerking van de taak naar een andere laag te delegeren. Wanneer een HTTP-verzoek bijvoorbeeld wat gegevens ophaalt van de backend, hoeft de JavaScript engine niet actief te wachten tot het antwoord terugkomt. Het verzoek zelf wordt verwerkt door de netwerklaag zonder interactie met de JavaScript engine. In plaats daarvan wordt er een callback gegeven (of bestaat er een meldingsmechanisme) om de code te activeren wanneer de taak is voltooid. Deze situatie wordt asynchrone code genoemd.\r\n\r\nEen JavaScript promise is een object dat de uiteindelijke voltooiing (of mislukking) van een asynchrone bewerking en de resulterende waarde vertegenwoordigt. Promises worden gebruikt om asynchrone bewerkingen in JavaScript af te handelen, zoals netwerkverzoeken of het lezen van een bestand.",
-            "ConsoleArea" : "let myPromise = new Promise(function(myResolve, myReject) {\r\n\/\/ hier gaat de code wat tijd kost\r\n\r\n  myResolve(); \/\/ wanneer successful\r\n  myReject();  \/\/ wanneer error\r\n});\r\n\r\n\/\/ \"Consuming Code\" (Must wait for a fulfilled Promise)\r\nmyPromise.then(\r\n  function(value) { \/* code wanneer succesvol *\/ },\r\n  function(error) { \/* code als er een error optreed *\/ }\r\n);",
+            "ConsoleArea": "let myPromise = new Promise(function(myResolve, myReject) {\r\n\/\/ hier gaat de code wat tijd kost\r\n\r\n  myResolve(); \/\/ wanneer successful\r\n  myReject();  \/\/ wanneer error\r\n});\r\n\r\n\/\/ \"Consuming Code\" (Must wait for a fulfilled Promise)\r\nmyPromise.then(\r\n  function(value) { \/* code wanneer succesvol *\/ },\r\n  function(error) { \/* code als er een error optreed *\/ }\r\n);",
             "showAnswer": false,
             "isValidated": true
         },
         {
             "Title": "Async en Await",
             "Type": "Theorie",
-            "OpdrachtArea": "async en await is net als promises een manier om asynchrone bewerkingen in JavaScript af te handelen. Sterker nog het is gebouwd bovenop promises en maakt het gemakkelijker om met asynchrone code te werken door het meer op synchrone code te laten lijken.\r\n\r\nEen async function is een function die wordt gedeclareerd met het async keyword en die altijd een promise returned. Binnen de functie kan je de keyword await gebruiken om de uitvoering van de functie te pauzeren totdat een promise is vervuld. Zodra de promise is vervuld,\r\nwordt de functie verder uitgevoerd.\r\n\r\nMet async en await is het veel makkelijker om code te schrijven wat leesbaar en makkelijk te begrijpen is. Het is dus een meer compacte en leesbare alternatief dan met promises en callbacks werken.\r\n",
-            "ConsoleArea" : "async function delayedMessageBox() {\r\n    \r\n  MessageBox.alert(\"Starting...\");\r\n  \r\n  await new Promise(resolve => setTimeout(resolve, 2000));\r\n  \r\n  MessageBox.alert(\"...Finished!\");\r\n}\r\n\r\ndelayedMessageBox();",
+            "OpdrachtArea": "Async en await is net als promises een manier om asynchrone bewerkingen in JavaScript af te handelen. Sterker nog het is gebouwd bovenop promises en maakt het gemakkelijker om met asynchrone code te werken door het meer op synchrone code te laten lijken.\r\n\r\nEen async function is een function die wordt gedeclareerd met het async keyword en die altijd een promise returned. Binnen de functie kan je de keyword await gebruiken om de uitvoering van de functie te pauzeren totdat een promise is vervuld. Zodra de promise is vervuld,\r\nwordt de functie verder uitgevoerd.\r\n\r\nMet async en await is het veel makkelijker om code te schrijven wat leesbaar en makkelijk te begrijpen is. Het is dus een meer compacte en leesbare alternatief dan met promises en callbacks werken.\r\n\r\nSince ECMAScript 2017, kan je de await keyword met elke expression gebruiken die een waarde returned, dus niet alleen promises. Dit is super handig ook in combinatie met SAPUI5 voor alles wat tijd nodig heeft en je code op moet wachten. (zoals dus een setTImeout)",
+            "ConsoleArea": "async function delayedMessageBox() {\r\n    \r\n  MessageBox.alert(\"Starting...\");\r\n  \r\n  await new Promise(resolve => setTimeout(resolve, 2000));\r\n  \r\n  MessageBox.alert(\"...Finished!\");\r\n}\r\n\r\ndelayedMessageBox();",
             "showAnswer": false,
             "isValidated": true
         },
@@ -177,7 +187,7 @@
             "Title": "Promise vs Async/Await",
             "Type": "Theorie",
             "OpdrachtArea": "Zonder await, zou je de response van de fetch met callbacks en promises moeten afhandelen. Dit maakt de code nogal complex en lastig te lezen. Voorbeeld =>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nMet await, kan je de code vereenvoudigen door de fetch te \"awaiten\" en errors afvangen met een try-catch block. Voorbeeld =>\r\n\r\nOp deze manier is de onFilter functie veel duidelijker en leesbaarder\r\n",
-            "ConsoleArea" : "\/\/ traditioinele promises\r\nonFilter: function(oEvent) {\r\n  var sCategory = oEvent.getParameter(\"category\");\r\n  fetch(\"https:\/\/example.com\/products?category=\" + sCategory)\r\n    .then(function(response) {\r\n      return response.json();\r\n    })\r\n    .then(function(data) {\r\n      var oModel = new JSONModel(data);\r\n      this.getView().setModel(oModel, \"products\");\r\n    }.bind(this))\r\n    .catch(function(error) {\r\n      console.error(\"Error fetching products:\", error);\r\n    });\r\n}\r\n\r\n\/\/async\/await\r\nasync onFilter(oEvent) {\r\n  try {\r\n    var sCategory = oEvent.getParameter(\"category\");\r\n    var response = await fetch(\"https:\/\/example.com\/products?category=\" + sCategory);\r\n    var data = await response.json();\r\n    var oModel = new JSONModel(data);\r\n    this.getView().setModel(oModel, \"products\");\r\n  } catch(error) {\r\n    console.error(\"Error fetching products:\", error);\r\n  }\r\n}",
+            "ConsoleArea": "\/\/ traditioinele promises\r\nonFilter: function(oEvent) {\r\n  var sCategory = oEvent.getParameter(\"category\");\r\n  fetch(\"https:\/\/example.com\/products?category=\" + sCategory)\r\n    .then(function(response) {\r\n      return response.json();\r\n    })\r\n    .then(function(data) {\r\n      var oModel = new JSONModel(data);\r\n      this.getView().setModel(oModel, \"products\");\r\n    }.bind(this))\r\n    .catch(function(error) {\r\n      console.error(\"Error fetching products:\", error);\r\n    });\r\n}\r\n\r\n\/\/async\/await\r\nasync onFilter(oEvent) {\r\n  try {\r\n    var sCategory = oEvent.getParameter(\"category\");\r\n    var response = await fetch(\"https:\/\/example.com\/products?category=\" + sCategory);\r\n    var data = await response.json();\r\n    var oModel = new JSONModel(data);\r\n    this.getView().setModel(oModel, \"products\");\r\n  } catch(error) {\r\n    console.error(\"Error fetching products:\", error);\r\n  }\r\n}",
             "showAnswer": false,
             "isValidated": true
         },
@@ -185,36 +195,57 @@
             "Title": "Default Parameters",
             "Type": "Theorie",
             "OpdrachtArea": "Default parameters zijn waarden die worden toegewezen aan een functie parameter als er geen waarde wordt meegegeven wanneer de functie wordt aangeroepen. Hiermee kan je een default gedrag voor een functie specificeren wanneer bepaalde waarden niet worden meegegeven. Met betrekking tot SAPUI5 lijkt deze functionaliteit niet erg krachtig\r\n\r\nVoorbeeld =>",
-            "ConsoleArea" : "function greet(name = \"Bennie Koekoek\") {\r\n  MessageBox.alert(\"Hello, \" + name);\r\n}\r\n\r\ngreet();\r\ngreet(\"Wil Bierman\");",
+            "ConsoleArea": "function greet(name = \"Bennie Koekoek\") {\r\n  MessageBox.alert(\"Hallo, \" + name);\r\n}\r\n\r\ngreet();\r\ngreet(\"Wil Bierman\");",
             "showAnswer": false,
             "isValidated": true
         },
         {
-            "Title": "",
-            "Type": "",
-            "OpdrachtArea": "",
-            "ConsoleArea" : "",
+            "Title": "Classes",
+            "Type": "Theorie",
+            "OpdrachtArea": "In ES6 zijn ook classes ge\u00EFntroduceerd. Classes bieden een handige en duidelijke syntax voor het maken van objecten en het implementeren van concepten van objectgeori\u00EBnteerd programmeren (OOP), zoals inheritance en encapsulation.\r\n\r\nEen class is een soort blauwdruk voor het maken van objecten ( een bepaalde data structuur), het leveren van initi\u00EBle waarden voor status en implementaties van gedrag (functies of methodes). Hier is een super makkelijke voorbeeld van een class Person =>\r\n\r\nIn dit voorbeeld heeft de class Person een constructor methode. Dit is een speciale methode die wordt aangeroepen wanneer er een nieuw object wordt gemaakt op basis van de class. De constructor neemt twee parameters, naam en leeftijd, en wijst deze toe aan de eigenschappen naam en leeftijd van het nieuwe object. De klasse heeft ook een sayHello methode, die een sap.m.MessageBox.alert maakt.\r\n\r\nOm een \u200B\u200Bnieuw object van de class te maken, gebruik je het nieuwe keyword gevolgd door de class naam en de vereiste argumenten voor de constructor methode. Vervolgens hebt u toegang tot de eigenschappen en methoden van het object.\r\n\r\n",
+            "ConsoleArea": "class Person {\r\n  constructor(naam, leeftijd) {\r\n    this.naam = naam;\r\n    this.leeftijd = leeftijd;\r\n  }\r\n\r\n  alertHallo() {\r\n    MessageBox.alert(`Hello, my name is ${this.naam} and I am ${this.leeftijd} years old.`);\r\n  }\r\n}\r\n\r\nconst hans = new Person(\"Hans Coenen\", 38);\r\nhans.alertHallo();\r\n",
             "showAnswer": false,
             "isValidated": true
         },
         {
-            "Title": "",
-            "Type": "",
-            "OpdrachtArea": "",
-            "ConsoleArea" : "",
+            "Title": "Classes extenden",
+            "Type": "Theorie",
+            "OpdrachtArea": "Classes ondersteunen ook inheritance (overerving), waarmee je een nieuwe class kan maken die de eigenschappen en methoden overerft van een bestaande class. Je kan de keyword extends gebruiken om een child class te maken die overerft van een parent class: =>\r\n\r\nIn dit voorbeeld erft de class Student van de class Person en breidt deze uit door een nieuwe eigenschap toe te voegen: \"innov8ionday\" en een nieuwe methode, sayHello. De keyword super wordt gebruikt om de constructor methode van de parent class aan te roepen en de argumenten naam en leeftijd door te geven.\r\n\r\nHoud er rekening mee dat classes slechts een \"syntax suiker\" zijn voor JavaScript. Onder de motorkap zijn ze gebaseerd op prototypes.\r\n\r\n",
+            "ConsoleArea": "class Person {\r\n  constructor(naam, leeftijd) {\r\n    this.naam = naam;\r\n    this.leeftijd = leeftijd;\r\n  }\r\n\r\n}\r\n\r\nclass Student extends Person {\r\n  constructor(naam, leeftijd, innov8ionday) {\r\n    super(naam, leeftijd);\r\n    this.innov8ionday = innov8ionday;\r\n  }\r\n\r\n  alertHallo() {\r\n    MessageBox.alert(`Hallo, mijn naam is ${this.naam}, ik ben ${this.leeftijd} jaar oud. Ik leer over ${this.innov8ionday}.`);\r\n  }\r\n}\r\n\r\nconst ron = new Student(\"Ron de Bil\", 20, \"Classes\");\r\nron.alertHallo(); ",
             "showAnswer": false,
             "isValidated": true
         },
         {
-            "Title": "",
-            "Type": "Oefening",
-            "OpdrachtArea": "",
+            "Title": "Class vs Prototypes",
+            "Type": "Theorie",
+            "OpdrachtArea": "Dit is een voorbeeld hoe je bovenstaande met prototype zou doen voor ES6. Zoals je kan zien biedt de class syntax een clean en meer intu\u00EFtieve manier om objecten te maken en overerving en encapsulation te implementeren, waardoor het makkelijker wordt om code te schrijven en begrijpen =>",
+            "ConsoleArea": "function Person(naam, leeftijd) {\r\n  this.naam = naam;\r\n  this.leeftijd = leeftijd;\r\n}\r\n\r\nconst hans = new Person(\"Hans Coenen\", 38);\r\n\r\nPerson.prototype.alertHallo = function() {\r\n    MessageBox.alert(`Hallo, mijn naam is ${this.naam} en ik ben ${this.leeftijd} jaar oud.`);\r\n  }\r\n  \r\nfunction Student(naam, leeftijd, innov8ionday) {\r\n  Person.call(this, naam, leeftijd);\r\n  this.innov8ionday = innov8ionday;\r\n}\r\nStudent.prototype = Object.create(Person.prototype);\r\nStudent.prototype.constructor = Student;\r\n\r\nStudent.prototype.alertHallo = function() {\r\n    MessageBox.alert(`Hallo, mijn naam is ${this.naam}, ik ben ${this.leeftijd} jaar oud. Ik leer over ${this.innov8ionday}.`);\r\n  }\r\n\r\nconst ron = new Student(\"Ron de Bil\", 20, \"Classes\");\r\nron.alertHallo();",
+            "showAnswer": false,
+            "isValidated": true
+        },
+        {
+            "Title": "SAPUI5 native classes",
+            "Type": "Theorie",
+            "OpdrachtArea": "SAPUI5 wordt geleverd met een eigen class systeem, dat is ontworpen v\u00F3\u00F3r de introductie van de class keyword in JavaScript ES6. Helaas kan de keyword class niet veilig gebruikt worden om SAPUI5 classes te extenden. SAPUI5 biedt namelijk een metadata structuur om class relevante informatie bij te houden. Met deze structuur defineer je de properties, aggregations en events. Gebaseerd op dit structuur worden automatisch de benodigde getters en setters aangemaakt. Bijvoorbeeld de sap.ui.core.Control's metadata zorgt ervoor dat de setBusy en getBusy methodes worden gegenereerd.\r\n\r\nJe zou technisch gezien wel een subclass kunnen maken van een SAPUI5 class, maar dan erf je dus ook de metadata over van de parent terwijl je eigen subclass geen metadata heeft. En deze metadata heb je wel nodig om te profiteren van de SAPUI5 functies. Deze inconsistentie in metadata kan ook leiden tot vreemd gedrag en bugs",
             "ConsoleArea": "",
-            "source":"",
-            "flags": "",
-            "antwoord": "",
             "showAnswer": false,
-            "isValidated": false
+            "isValidated": true
+        },
+        {
+            "Title": "To-do List",
+            "Type": "Grote Oefening",
+            "OpdrachtArea": "1.Maak een nieuwe freestyle SAPUI5-project in de SAP BAS.\r\n\r\n2.Maak een nieuwe View voor de to-do list en voeg er een sap.m.List aan toe.\r\n\r\n3.Gebruik een class in ES6 om een \u200B\u200Bmodel te maken voor de actiepunten, dat properties bevat zoals: task name, due date, en completion status.\r\n\r\n4.Gebruik arrow functions om methoden te cre\u00EBren voor het toevoegen en verwijderen van items uit de lijst, en om items als compleet of onvolledig te markeren.\r\n\r\n5.Gebruik de spread-operator om nieuwe items aan de lijst toe te voegen en de methode filter() om de voltooide of onvolledige items te filteren.\r\n\r\n6.Gebruik template literals om de due date in het juiste format weer te geven.\r\n\r\n7.Gebruik destructuring assignment om het gemakkelijker te maken om toegang te krijgen tot de properties van de actiepunten in de methoden.\r\n\r\n8.Gebruik de keywords let en const om variabelen en constanten te declareren.\r\n\r\n9.Gebruik de methode forEach() om door de items in de lijst te bladeren en hun completion status bij te werken.\r\nVoeg wat CSS toe om het er goed en interactief uit te laten zien.",
+            "ConsoleArea": "",
+            "showAnswer": false,
+            "isValidated": true
+        },
+        {
+            "Title": "Memorie Spel",
+            "Type": "Grote Oefening",
+            "OpdrachtArea": "1.Maak een nieuw freestyle SAPUI5-project in de SAP BAS trial omgeving.\r\n\r\n2.Maak een nieuwe view en voeg er een Grid layout aan toe.\r\n\r\n3.Voeg een sap.m.Button toe voor elke kaart in het raster en gebruik als Text: \"?\" om het verborgen image weer te geven.\r\n\r\n4.Maak een array aan images en schrijf een functie om er random een te laten zien.\r\n\r\n5.Wanneer op een Button wordt geklikt, wordt de Button text ingesteld op de overeenkomstige afbeelding uit de array.\r\n\r\n6.Houd bij hoe vaak er op elke Button wordt geklikt.\r\n\r\n7.Als er op twee Buttons zijn geklikt, controleer dan of de images overeenkomen. Als ze dat doen, laat ze dan open liggen. Zo niet, draai ze dan weer om.\r\n\r\n8.Houd het aantal matches bij en be\u00EBindig het spel als alle matches zijn gevonden.\r\n\r\n9.Voeg een resetknop toe om het spel opnieuw te beginnen.\r\n\r\n10.Voeg wat CSS toe om het er goed en interactief uit te laten zien.",
+            "ConsoleArea": "",
+            "showAnswer": false,
+            "isValidated": true
         }
     ]
 }
