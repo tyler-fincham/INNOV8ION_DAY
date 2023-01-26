@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:ce="sap.ui.codeeditor">
+    <WizardStep title="{OpdrachtenModel>/opdrachtText/0/Title}" icon="{path: 'CodeEditorThemes>key', formatter: '.formatter.getRandomIcon'}" validated="true">
+        <HBox renderType="Bare">
+            <TextArea  cols="300" rows="" editable="false" value="{path: 'OpdrachtenModel>/opdrachtText/0/OpdrachtArea', formatter: '.formatter.getOpdrachtText'}"/>
+            <ce:CodeEditor height="300px" width="100%" type="javascript" liveChange="onConsoleInput" syntaxHints="true" colorTheme="default" 
+            value="{OpdrachtenModel>/opdrachtText/0/ConsoleArea}" />
+        </HBox>
+        <Button text="Run" press="onRun" />
+        <Button text="Clear" press="onClear" />
+    </WizardStep>
+</core:FragmentDefinition>

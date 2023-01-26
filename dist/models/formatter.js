@@ -1,0 +1,1 @@
+sap.ui.define(["sap/ui/core/IconPool"],function(e){"use strict";return{getRandomIcon:function(){var n=e.getIconNames();var t=Math.floor(Math.random()*n.length);return e.getIconURI(n[t])},getAntwoordButton:function(e,n){if(n==="Oefening"){setTimeout(()=>true,200)}else{return false}}}});

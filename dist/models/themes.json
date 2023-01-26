@@ -1,0 +1,130 @@
+{
+    "selectedTheme" : "default",
+    "themes": [
+        {
+            "key": "default",
+            "name": "default"
+        },
+        {
+            "key": "hcb",
+            "name": "hcb"
+        },
+        {
+            "key": "hcb_bright",
+            "name": "hcb_bright"
+        },
+        {
+            "key": "hcb_blue",
+            "name": "hcb_blue"
+        },
+        {
+            "key": "theme-ambiance",
+            "name": "theme-ambiance"
+        },
+        {
+            "key": "chaos",
+            "name": "chaos"
+        },
+        {
+            "key": "chrome",
+            "name": "chrome"
+        },
+        {
+            "key": "clouds",
+            "name": "clouds"
+        },
+        {
+            "key": "clouds_midnight",
+            "name": "clouds_midnight"
+        },
+        {
+            "key": "cobalt",
+            "name": "cobalt"
+        },
+        {
+            "key": "crimson_editor",
+            "name": "crimson_editor"
+        },
+        {
+            "key": "dawn",
+            "name": "dawn"
+        },
+        {
+            "key": "dreamweaver",
+            "name": "dreamweaver"
+        },
+        {
+            "key": "eclipse",
+            "name": "eclipse"
+        },
+        {
+            "key": "github",
+            "name": "github"
+        },
+        {
+            "key": "gob",
+            "name": "gob"
+        },
+        {
+            "key": "gruvbox",
+            "name": "gruvbox"
+        },
+        {
+            "key": "idle_fingers",
+            "name": "idle_fingers"
+        },
+        {
+            "key": "iplastic",
+            "name": "iplastic"
+        },
+        {
+            "key": "katzenmilch",
+            "name": "katzenmilch"
+        },
+        {
+            "key": "kr_theme",
+            "name": "kr_theme"
+        },
+        {
+            "key": "kuroir",
+            "name": "kuroir"
+        },
+        {
+            "key": "merbivore",
+            "name": "merbivore"
+        },
+        {
+            "key": "merbivore_soft",
+            "name": "merbivore_soft"
+        },
+        {
+            "key": "mono_industrial",
+            "name": "mono_industrial"
+        },
+        {
+            "key": "monokai",
+            "name": "monokai"
+        },
+        {
+            "key": "pastel_on_dark",
+            "name": "pastel_on_dark"
+        },
+        {
+            "key": "solarized_dark",
+            "name": "solarized_dark"
+        },
+        {
+            "key": "solarized_light",
+            "name": "solarized_light"
+        },
+        {
+            "key": "sqlserver",
+            "name": "sqlserver"
+        },
+        {
+            "key": "terminal",
+            "name": "terminal"
+        }
+    ]
+}
+
