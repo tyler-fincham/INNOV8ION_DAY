@@ -128,7 +128,6 @@ sap.ui.define([
                 const sPath = oEvent.getSource().getBindingContext("OpdrachtenModel").getPath();
                 const sOriginalVal = this.getView().getModel("RestoreData").getProperty(sPath).ConsoleArea;
                 this.getView().getModel("OpdrachtenModel").setProperty(`${sPath}/ConsoleArea`, sOriginalVal);
-
             },
 
             onAntwoord: function (oEvent) {
