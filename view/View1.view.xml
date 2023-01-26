@@ -1,0 +1,31 @@
+<mvc:View controllerName="INNOV8ION_DAY.controller.View1" xmlns:mvc="sap.ui.core.mvc" xmlns:ce="sap.ui.codeeditor" displayBlock="true" xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Page id="page" backgroundDesign="Transparent">
+        <headerContent>
+            <Label id="ceThemesLabelId" text="CE Themes:" />
+            <Select id="selectBoxId" change="onSelectChange" selectedKey="default" items="{
+                    path: 'CodeEditorThemes>/themes',
+                    sorter: { path: 'name' }}">
+                <core:Item id="themeSelectItemId" key="{CodeEditorThemes>key}" text="{CodeEditorThemes>name}" />
+            </Select>
+        </headerContent>
+        <content>
+            <Wizard id="mainWizardId" steps="{OpdrachtenModel>/opdrachtText}" finishButtonText="Einde" stepActivate="onStepActivate" navigationChange="onNavChnge" backgroundDesign="Transparent">
+                <!-- <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht1" type="XML" />
+                <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht2" type="XML" />                
+                <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht3" type="XML" />
+                <core:Fragment fragmentName="INNOV8ION_DAY.webapp.fragments.opdracht4" type="XML" /> -->
+                <WizardStep id="wizStepId" title="{OpdrachtenModel>Type}: {OpdrachtenModel>Title}" icon="{path: 'CodeEditorThemes>key', formatter: '.formatter.getRandomIcon'}" validated="{OpdrachtenModel>isValidated}" activate="onActivate">
+                    <HBox id="hboxId" renderType="Bare">
+                        <TextArea id="textAreaId" cols="250" rows="" editable="false" value="{path: 'OpdrachtenModel>OpdrachtArea'}" />
+                        <ce:CodeEditor id="codeEditorId" height="550px" width="100%" type="javascript" liveChange="onConsoleInput" syntaxHints="true" colorTheme="{CodeEditorThemes>/selectedTheme}" value="{OpdrachtenModel>ConsoleArea}" />
+                    </HBox>
+                    <Button id="runBtnId" text="Run" press="onRun" />
+                    <Button id="clearBtnId" text="Clear" press="onClear" />
+                    <Button id="resetBtnId" text="Reset" press="onReset" />
+                    <Button id="antwoordBtnId" text="Toon Antwoord" visible="{OpdrachtenModel>showAnswer}" press="onAntwoord" />
+                    <!-- <Button id="antwoordBtnId" text="Toon Antwoord"  visible="{parts:[ {path: 'OpdrachtenModel>showAnswer'},{path: 'OpdrachtenModel>Type'}], formatter: '.formatter.getAntwoordButton'}" press="onAntwoord" /> -->
+                </WizardStep>
+            </Wizard>
+        </content>
+    </Page>
+</mvc:View>
