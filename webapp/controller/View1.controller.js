@@ -186,7 +186,7 @@ sap.ui.define([
 
                     setTimeout(() => {
                         oModel.setProperty(`${sPath}/showAnswer`, true);
-                    }, 600000);
+                    }, 300000);
                 }
             }
 
