@@ -170,10 +170,6 @@ sap.ui.define([
 
             },
 
-            onNavChnge: function (oEvent) {
-                // debugger
-            },
-
             handleCommandShiftS: function() {
                 sap.ui.getCore().byId(this.getView().byId("mainWizardId").getCurrentStep()).setValidated(true);
             },
